@@ -27,15 +27,19 @@ Sve to možete izbjeći ako koristite program, gdje jednostavan klik na Sync but
 Naredbe koje vam trebaju su:
 
 - git status 
+
     pogledajte status repozitorija
 - git pull
+
     pullajte sve moguće promjene (pošto ćete vi raditi na vašem repu, onda njih neće biti)
 - git add -A
     
 - git commit -m "neka poruka koja objašnjava feature"
 - git push
+
     pushajte vaše lokalne promjene na github repo, ukoliko ne uspijete, vjerovatno morate pullati prvo
 
 I ako ste jako znatiželji
 - git log 
+
     vam izlista sve promjene :)
