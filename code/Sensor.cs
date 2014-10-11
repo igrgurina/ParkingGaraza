@@ -14,8 +14,8 @@ namespace ParkingProba
         public delegate void SensorSignalHandler(object o, EventArgs e);
 
         /// <summary>
-        /// <example>OnSensorMade(this, EventArgs.Empty);</example>
         /// </summary>
+        /// <example>OnSensorMade(this, EventArgs.Empty);</example>
         public event SensorSignalHandler OnSensorSignal;
 
         /// <summary>

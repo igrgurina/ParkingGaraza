@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace ParkingProba
 {
-    class Transaction
+    public class Transaction
     {
         private User user;
-        Int32 amount;
+        private Int32 amount;
         private DateTime dateTime;
+
+        public Transaction(User user, int amount)
+        {
+            this.user = user;
+            this.amount = amount;
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace ParkingProba
     {
         private Int32 OIB;
         public String Name, Surname, Address, Email, ContactPhone, CreditCardNumber;
-
+        private String username, password;
 
     }
 }
