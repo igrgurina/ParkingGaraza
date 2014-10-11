@@ -1,0 +1,21 @@
+2014/10/11 19:26:24 [error] [exception.CDbException] exception 'CDbException' with message 'The table "user_cache" for active record class "UserCache" cannot be found in the database.' in C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(UserCache))
+#1 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\db\ar\CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\db\ar\CActiveRecord.php(1350): CActiveRecord->getTableSchema()
+#3 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\db\ar\CActiveRecord.php(1456): CActiveRecord->query(Object(CDbCriteria))
+#4 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\protected\modules\UserAdmin\components\UAccessController.php(214): CActiveRecord->find('is_guest = 1')
+#5 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\protected\modules\UserAdmin\components\UAccessController.php(99): UAccessController->_checkCache(true)
+#6 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\protected\modules\UserAdmin\components\UAccessController.php(41): UAccessController->_getGuestAllowedRoutes()
+#7 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\filters\CInlineFilter.php(58): UAccessController->filterUserAdminControl(Object(CFilterChain))
+#8 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#12 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('UserAdmin/userT...')
+#13 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=UserAdmin/userTask/admin
+HTTP_REFERER=http://www.parking.loc/
+---

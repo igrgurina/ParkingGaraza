@@ -16,25 +16,30 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.modules.UserAdmin.components.*',
+        'application.modules.UserAdmin.models.*',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
+		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'Enter Your Password Here',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
-		*/
+		'UserAdmin' => array(
+			'cache_time' => 3600,
+		),
 	),
 
 	// application components
 	'components'=>array(
 		'user'=>array(
-			// enable cookie-based authentication
+			'class' => 'FWebUser',
 			'allowAutoLogin'=>true,
+			'loginUrl' => array('/UserAdmin/auth/login'),
 		),
 		// uncomment the following to enable URLs in path-format
 		/*
