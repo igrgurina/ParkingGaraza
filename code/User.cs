@@ -9,7 +9,8 @@ namespace ParkingProba
     public class User
     {
         private Int32 OIB;
-        public String Name, Surname, Address, Email, ContactPhone, CreditCardNumber;
+        public String Name;
+        public String Surname, Address, Email, ContactPhone, CreditCardNumber;
         private String username, password;
 
     }
