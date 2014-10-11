@@ -19,7 +19,7 @@ namespace ParkingProba
         public ReservationType Type;
 
         /// <summary>
-        /// TODO: Raise an event when TimeLeft is 0.
+        /// TODO: Raise an event when TimeLeft is 0. -- transaction
         /// </summary>
         internal TimeSpan TimeLeft { get { return EndDateTime - DateTime.UtcNow; } }
 
@@ -37,7 +37,7 @@ namespace ParkingProba
             {
                 case ReservationType.Jednokratno:
                     //  jednokratno za vremenski period kraći od 24 sata i to mora obaviti barem 6h unaprijed
-                    if (trajanje.TotalHours > 24.0 || StartDateTime > DateTime.UtcNow.AddHours(6))
+                    if (trajanje.TotalHours > 24.0 || StartDateTime < DateTime.UtcNow.AddHours(6))
                         throw new Exception();
                     //new Transaction();
                     break;
