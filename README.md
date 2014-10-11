@@ -1,7 +1,11 @@
 upute
 =====================
 
-PRIČEKAJ MALO; radim izmjene!
+Za inicijalizaciju svega, stisnite Clone in Desktop gumb tu sa desne strane.
+
+Pratite upute za instalaciju.
+
+Unutar GitHub for Windows programa imate dosta opcija, otvorite naš repozitorij kad se klonira.
 
 Dalje možete raditi sa tim grafičkim programom (u daljnjem tekstu, program) ili u git shellu (u daljnjem tekstu, konzola).
 Za početak, otvorite repozitorij u programu, i gore desno vidite opcije, između ostalog i Open in explorer i Open in GitShell.
