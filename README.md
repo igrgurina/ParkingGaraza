@@ -21,6 +21,7 @@ Tu vam je program već dosta toga postavio sam od sebe pri pokretanju konzole.
 Sada trebate napraviti sljedeće:
 https://help.github.com/articles/configuring-a-remote-for-a-fork/
 i onda redovito raditi ovo: https://help.github.com/articles/syncing-a-fork/
+
 Zezam se :P
 Sve to možete izbjeći ako koristite program, gdje jednostavan klik na Sync button sve synca :)
 
