@@ -1,15 +1,7 @@
 upute
 =====================
 
-- 'Fork'ajte si ovaj repozitorij
-- forkani repozitorij će sada biti na vašem profilu
-- stisnite 'Clone in desktop' na tom forkanom repozitoriju
-
-Jako je bitno da ne stisnete 'Clone in desktop' na ovom repozitoriju.
-
-Ukoliko nemate instaliran Github for Windows, zatražit će vas da ga instalirate. Slijedite upute na ekranu.
-
-Kada instalacija završi, on će povući vaš forkani branch repozitorija kod vas lokalno.
+PRIČEKAJ MALO; radim izmjene!
 
 Dalje možete raditi sa tim grafičkim programom (u daljnjem tekstu, program) ili u git shellu (u daljnjem tekstu, konzola).
 Za početak, otvorite repozitorij u programu, i gore desno vidite opcije, između ostalog i Open in explorer i Open in GitShell.
