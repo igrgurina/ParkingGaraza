@@ -32,8 +32,21 @@
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				//array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				//array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+				
+				//=========== Main controllers ===========
+ 
+				array('label'=>"Users", 'url'=>array('/UserAdmin/user/admin'), 'visible'=>User::checkTask('userAdmin')),
+				array('label'=>"Roles", 'url'=>array('/UserAdmin/userRole/admin'), 'visible'=>User::checkTask('userRoleAdmin')),
+				array('label'=>"Tasks", 'url'=>array('/UserAdmin/userTask/admin'), 'visible'=>User::checkRole('isSuperAdmin')),
+				 
+				//=========== Login, logout, registration, profile ===========
+				 
+				array('label'=>"Login", 'url'=>array('/UserAdmin/auth/login'), 'visible'=>!User::checkRole('isGuest')),
+				array('label'=>"Logout", 'url'=>array('/UserAdmin/auth/logout')),
+				array('label'=>"Registration", 'url'=>array('/UserAdmin/auth/registration'), 'visible'=>!User::checkRole('isGuest')),
+				array('label'=>"Profile", 'url'=>array('/UserAdmin/profile/personal'), 'visible'=>(!User::checkRole('isGuest') AND User::checkTask('personalProfileAccess'))),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
