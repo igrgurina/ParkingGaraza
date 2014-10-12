@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Parking Garaža',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -18,6 +18,7 @@ return array(
 		'application.components.*',
 		'application.modules.UserAdmin.components.*',
         'application.modules.UserAdmin.models.*',
+        'application.extensions.EGMap.*',
 	),
 
 	'modules'=>array(
@@ -84,6 +85,7 @@ return array(
 				*/
 			),
 		),
+
 	),
 
 	// application-level parameters that can be accessed

@@ -19,3 +19,27 @@ Stack trace:
 REQUEST_URI=/index.php?r=UserAdmin/userTask/admin
 HTTP_REFERER=http://www.parking.loc/
 ---
+2014/10/12 14:35:55 [error] [php] include(EGMap.php): failed to open stream: No such file or directory (C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\protected\views\site\index.php(30): spl_autoload_call()
+#1 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CBaseController.php(126): require()
+#2 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\protected\controllers\SiteController.php(32): SiteController->render()
+#6 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#7 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#9 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\protected\modules\UserAdmin\components\UAccessController.php(38): CFilterChain->run()
+#10 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\filters\CInlineFilter.php(58): SiteController->filterUserAdminControl()
+#11 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#15 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php
+in C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\protected\views\site\index.php (30)
+in C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\protected\controllers\SiteController.php (32)
+in C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\code\protected\modules\UserAdmin\components\UAccessController.php (38)
