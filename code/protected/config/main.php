@@ -12,6 +12,14 @@ return array(
 	// preloading 'log' component
 	'preload'=>array('log'),
 
+    // path aliases
+    'aliases' => array (
+        // yiistrap configuration
+        'bootstrap' => realpath(__DIR__ . '/../extensions/bootstrap'),
+        // yiiwheels configuration
+        'yiiwheels' => realpath(__DIR__ . '/../extensions/yiiwheels'),
+    ),
+
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
