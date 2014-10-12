@@ -24,20 +24,24 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+        // UserAdmin module
 		'application.modules.UserAdmin.components.*',
         'application.modules.UserAdmin.models.*',
+        // Google Maps extension
         'application.extensions.EGMap.*',
+        // Bootstrap extension
+        'bootstrap.helpers.TbHtml',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'Enter Your Password Here',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
+        // UserAdmin module
 		'UserAdmin' => array(
 			'cache_time' => 3600,
 		),
@@ -93,7 +97,14 @@ return array(
 				*/
 			),
 		),
-
+        // yiistrap configuration
+        'bootstrap' => array(
+            'class' => 'bootstrap.components.TbApi',
+        ),
+        // yiiwheels configuration
+        'yiiwheels' => array(
+            'class' => 'yiiwheels.YiiWheels',
+        )
 	),
 
 	// application-level parameters that can be accessed
