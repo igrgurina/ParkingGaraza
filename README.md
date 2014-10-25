@@ -1,4 +1,4 @@
-upute
+upute :bowtie:
 =====================
 
 Za inicijalizaciju svega, stisnite Clone in Desktop gumb tu sa desne strane.
