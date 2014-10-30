@@ -5,6 +5,7 @@ Name | Type | Comments
 --- | --- | ---
 id | int(11) | primary key auto increment
 OIB | int(11) | -
+username | varchar(16) | username
 name | varchar(40) | first name
 surname | varchar(40) | last name
 email | varchar(70) | valid email address
