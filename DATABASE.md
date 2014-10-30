@@ -62,7 +62,7 @@ lng | float | longitude
 ##Indexes
 
 ##SQL 
-###createDatabase.sql
+###Init.sql
 ``` sql
 --
 -- Database: `parking`
@@ -164,5 +164,26 @@ CREATE TABLE IF NOT EXISTS `user` (
   `lastLogin` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+```
+
+###Data.sql
+``` sql
+
+--
+-- Database: `parking`
+--
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`id`, `name`, `locationId`) VALUES(1, 'Gradski Parking d.o.o.', 1);
+
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`id`, `name`, `address`, `lat`, `lng`) VALUES(1, 'Gradski Parking d.o.o.', 'Ozaljska ulica 105, 10000, Zagreb', 45.7972, 15.9385);
 
 ```
