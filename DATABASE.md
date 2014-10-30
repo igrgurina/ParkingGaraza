@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `company` (
   `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Gradski Parking d.o.o.',
   `locationId` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Contains information about company.' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `parkingspot` (
 --
 
 CREATE TABLE IF NOT EXISTS `reservation` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
   `type` enum('instant','recurring','permanent') COLLATE utf8_unicode_ci NOT NULL,
   `parkingSpotId` int(11) NOT NULL,
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `end` timestamp NULL DEFAULT NULL,
   `duration` time DEFAULT NULL,
   `period` time DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
