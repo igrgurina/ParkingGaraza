@@ -25,8 +25,22 @@ end | timestamp | when does reservation end
 duration | timestamp | how long does reservation last
 period | timestamp | how often does reservation repeat
 
+###ParkingSpot
+Name | Type | Comments
+--- | --- | ---
+id | int(11) | primary key auto increment
+parkingId | int(11) | foreign key parking(id)
+sensor | boolean | true = taken, false = free
 
-
+###Parking
+Name | Type | Comments
+--- | --- | ---
+id | int(11) | primary key auto increment
+locationId | int(11) | foreign key location(id)
+type | enum('garage','outdoor') | parking type
+numOfParkingSpots | int(11) | *maximum* number of parking spots
+companyId | int(11) | foreign key company(id)
+cost | int(11) | cost of parking per hour
 
 ##Indexes
 
