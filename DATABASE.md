@@ -42,5 +42,21 @@ numOfParkingSpots | int(11) | *maximum* number of parking spots
 companyId | int(11) | foreign key company(id)
 cost | int(11) | cost of parking per hour
 
+###Company
+Name | Type | Comments
+--- | --- | ---
+id | int(11) | primary key auto increment
+name | varchar(32) | company name
+locationId | int(11) | foreign key location(id)
+
+###Location
+Name | Type | Comments
+--- | --- | ---
+id | int(11) | primary key auto increment
+name | varchar(60) | location description
+address | varchar(60) | address
+lat | float | latitude
+lng | float | longitude
+
 ##Indexes
 
