@@ -67,6 +67,8 @@ lng | float | longitude
 --
 -- Database: `parking`
 --
+CREATE DATABASE IF NOT EXISTS `parking` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `parking`;
 
 -- --------------------------------------------------------
 
