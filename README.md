@@ -1,5 +1,6 @@
-upute :bowtie:
-=====================
+![alt text][logo]
+
+#GitHub upute :bowtie:
 
 Za inicijalizaciju svega, stisnite Clone in Desktop gumb tu sa desne strane.
 
@@ -40,3 +41,6 @@ I ako ste jako znatiželji
 - git log 
 
     vam izlista sve promjene :)
+
+
+[logo]: https://github.com/Alvareto/ParkingGaraza/blob/master/graphics/bannerLogo.png "Project logo"
