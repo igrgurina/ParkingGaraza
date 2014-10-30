@@ -64,6 +64,10 @@ lng | float | longitude
 ##SQL 
 ###createDatabase.sql
 ``` sql
+--
+-- Database: `parking`
+--
+
 -- --------------------------------------------------------
 
 --
