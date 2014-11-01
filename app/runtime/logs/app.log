@@ -1,0 +1,136 @@
+2014-11-01 21:08:18 [127.0.0.1][][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: parking-spot/change' in C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\app\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\app\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('change', Array)
+#1 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\app\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('parking-spot/ch...', Array)
+#2 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\app\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\app\web\index.php(12): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request: parking-spot/change' in C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\app\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\app\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\app\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2014-11-01 21:08:18 [127.0.0.1][][-][info][application] $_GET = [
+    'r' => 'parking-spot/change'
+]
+
+$_COOKIE = [
+    '_csrf' => '3faf575f1b04bf46c4822faa222378faae5971bff18125e323fdc9d7f41312e4s:32:\"fV2U6mgew39QSChfdqTx5cMRLzS7prGg\";'
+    'PHPSESSID' => 'ivhntub4cptrracm8kjf2iv9t5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'qicancg'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'www.parking.loc'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://www.parking.loc/index.php?r=gii%2Fdefault%2Fview&id=controller'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate,sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,hr;q=0.6,sr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=3faf575f1b04bf46c4822faa222378faae5971bff18125e323fdc9d7f41312e4s%3A32%3A%22fV2U6mgew39QSChfdqTx5cMRLzS7prGg%22%3B; PHPSESSID=ivhntub4cptrracm8kjf2iv9t5'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;;C:\\Users\\DevIntern\\Documents\\GitHub\\iframework;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\TortoiseSVN\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.9 (Win32) OpenSSL/1.0.1g PHP/5.5.11 Server at www.parking.loc Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Win32) OpenSSL/1.0.1g PHP/5.5.11'
+    'SERVER_NAME' => 'www.parking.loc'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/Users/DevIntern/Documents/GitHub/ParkingGaraza/app/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/Users/DevIntern/Documents/GitHub/ParkingGaraza/app/web'
+    'SERVER_ADMIN' => 'ivan@parking.loc'
+    'SCRIPT_FILENAME' => 'C:/Users/DevIntern/Documents/GitHub/ParkingGaraza/app/web/index.php'
+    'REMOTE_PORT' => '10465'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=parking-spot%2Fchange'
+    'REQUEST_URI' => '/index.php?r=parking-spot%2Fchange'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1414872498.281
+    'REQUEST_TIME' => 1414872498
+]
+2014-11-01 21:12:54 [127.0.0.1][][ivhntub4cptrracm8kjf2iv9t5][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\controllers\LoginForm' not found' in C:\Users\DevIntern\Documents\GitHub\ParkingGaraza\app\controllers\UserController.php:28
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2014-11-01 21:12:54 [127.0.0.1][][ivhntub4cptrracm8kjf2iv9t5][info][application] $_GET = [
+    'r' => 'user/login'
+]
+
+$_COOKIE = [
+    '_csrf' => '3faf575f1b04bf46c4822faa222378faae5971bff18125e323fdc9d7f41312e4s:32:\"fV2U6mgew39QSChfdqTx5cMRLzS7prGg\";'
+    'PHPSESSID' => 'ivhntub4cptrracm8kjf2iv9t5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'qicancg'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'www.parking.loc'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate,sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,hr;q=0.6,sr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=3faf575f1b04bf46c4822faa222378faae5971bff18125e323fdc9d7f41312e4s%3A32%3A%22fV2U6mgew39QSChfdqTx5cMRLzS7prGg%22%3B; PHPSESSID=ivhntub4cptrracm8kjf2iv9t5'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;;C:\\Users\\DevIntern\\Documents\\GitHub\\iframework;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\TortoiseSVN\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.9 (Win32) OpenSSL/1.0.1g PHP/5.5.11 Server at www.parking.loc Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Win32) OpenSSL/1.0.1g PHP/5.5.11'
+    'SERVER_NAME' => 'www.parking.loc'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/Users/DevIntern/Documents/GitHub/ParkingGaraza/app/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/Users/DevIntern/Documents/GitHub/ParkingGaraza/app/web'
+    'SERVER_ADMIN' => 'ivan@parking.loc'
+    'SCRIPT_FILENAME' => 'C:/Users/DevIntern/Documents/GitHub/ParkingGaraza/app/web/index.php'
+    'REMOTE_PORT' => '10545'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=user/login'
+    'REQUEST_URI' => '/index.php?r=user/login'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1414872774.256
+    'REQUEST_TIME' => 1414872774
+]
