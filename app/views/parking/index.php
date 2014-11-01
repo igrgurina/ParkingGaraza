@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\i18n\Formatter;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ParkingSearch */
@@ -25,18 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'id',
-            [
-                'label' => 'Location',
-                'attribute' => 'location.name',
-            ],
+            /// "attribute:format:label"
+            'company.name:text:Company',
+            'location.address:text:Location',
             'type',
+            'number_of_parking_spots:integer:Size',
             [
-                'label' => 'Size',
-                'attribute' => 'number_of_parking_spots'
+                'label' => 'Cost/h',
+                'attribute' => 'cost' ,
             ],
-            'company.name',
-            'cost',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
