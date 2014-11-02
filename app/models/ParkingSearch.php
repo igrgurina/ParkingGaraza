@@ -18,7 +18,7 @@ class ParkingSearch extends Parking
     public function rules()
     {
         return [
-            [['id', 'location_id', 'number_of_parking_spots', 'company_id', 'cost'], 'integer'],
+            [['id', 'locationId', 'numberOfParkingSpots', 'companyId', 'cost'], 'integer'],
             [['type'], 'safe'],
         ];
     }
@@ -53,9 +53,9 @@ class ParkingSearch extends Parking
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'location_id' => $this->location_id,
-            'number_of_parking_spots' => $this->number_of_parking_spots,
-            'company_id' => $this->company_id,
+            'locationId' => $this->locationId,
+            'numberOfParkingSpots' => $this->numberOfParkingSpots,
+            'companyId' => $this->companyId,
             'cost' => $this->cost,
         ]);
 

@@ -17,13 +17,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'location_id') ?>
+    <?= $form->field($model, 'locationId') ?>
 
     <?= $form->field($model, 'type') ?>
 
-    <?= $form->field($model, 'number_of_parking_spots') ?>
+    <?= $form->field($model, 'numberOfParkingSpots') ?>
 
-    <?= $form->field($model, 'company_id') ?>
+    <?= $form->field($model, 'companyId') ?>
 
     <?php // echo $form->field($model, 'cost') ?>
 

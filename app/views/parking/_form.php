@@ -12,13 +12,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'location_id')->textInput() ?>
+    <?= $form->field($model, 'locationId')->textInput() ?>
 
     <?= $form->field($model, 'type')->dropDownList([ 'garage' => 'Garage', 'outdoor' => 'Outdoor', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'number_of_parking_spots')->textInput() ?>
+    <?= $form->field($model, 'numberOfParkingSpots')->textInput() ?>
 
-    <?= $form->field($model, 'company_id')->textInput() ?>
+    <?= $form->field($model, 'companyId')->textInput() ?>
 
     <?= $form->field($model, 'cost')->textInput() ?>
 

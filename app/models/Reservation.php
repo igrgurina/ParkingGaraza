@@ -8,16 +8,16 @@ use Yii;
  * This is the model class for table "reservation".
  *
  * @property integer $id
- * @property integer $user_id
+ * @property integer $userId
  * @property string $type
- * @property integer $parking_spot_id
+ * @property integer $parkingSpotId
  * @property string $start
  * @property string $end
  * @property string $duration
  * @property string $period
  *
- * @property User $user
  * @property ParkingSpot $parkingSpot
+ * @property User $user
  */
 class Reservation extends \yii\db\ActiveRecord
 {
@@ -35,8 +35,8 @@ class Reservation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'type', 'parking_spot_id'], 'required'],
-            [['user_id', 'parking_spot_id'], 'integer'],
+            [['userId', 'type', 'parkingSpotId'], 'required'],
+            [['userId', 'parkingSpotId'], 'integer'],
             [['type'], 'string'],
             [['start', 'end', 'duration', 'period'], 'safe']
         ];
@@ -49,9 +49,9 @@ class Reservation extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User ID',
+            'userId' => 'User ID',
             'type' => 'Type',
-            'parking_spot_id' => 'Parking Spot ID',
+            'parkingSpotId' => 'Parking Spot ID',
             'start' => 'Start',
             'end' => 'End',
             'duration' => 'Duration',
@@ -62,16 +62,16 @@ class Reservation extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
+    public function getParkingSpot()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(ParkingSpot::className(), ['id' => 'parkingSpotId']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getParkingSpot()
+    public function getUser()
     {
-        return $this->hasOne(ParkingSpot::className(), ['id' => 'parking_spot_id']);
+        return $this->hasOne(User::className(), ['id' => 'userId']);
     }
 }

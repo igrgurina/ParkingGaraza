@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
- * @property integer $location_id
+ * @property integer $locationId
  *
  * @property Location $location
  * @property Parking[] $parkings
@@ -30,8 +30,8 @@ class Company extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['location_id'], 'required'],
-            [['location_id'], 'integer'],
+            [['locationId'], 'required'],
+            [['locationId'], 'integer'],
             [['name'], 'string', 'max' => 32]
         ];
     }
@@ -44,7 +44,7 @@ class Company extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'location_id' => 'Location ID',
+            'locationId' => 'Location ID',
         ];
     }
 
@@ -53,14 +53,14 @@ class Company extends \yii\db\ActiveRecord
      */
     public function getLocation()
     {
-        return $this->hasOne(Location::className(), ['id' => 'location_id']);
+        return $this->hasOne(Location::className(), ['id' => 'locationId']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getParking()
+    public function getParkings()
     {
-        return $this->hasMany(Parking::className(), ['company_id' => 'id']);
+        return $this->hasMany(Parking::className(), ['companyId' => 'id']);
     }
 }

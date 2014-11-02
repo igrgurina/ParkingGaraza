@@ -3,11 +3,15 @@
 namespace app\controllers;
 
 use Yii;
+use yii\debug\models\search\Db;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\RegistrationForm;
+use yii\web\UrlManager;
 
 class SiteController extends Controller
 {
@@ -16,8 +20,13 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout', 'register'],
                 'rules' => [
+                    [
+                        'actions' => ['register'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
                     [
                         'actions' => ['logout'],
                         'allow' => true,
@@ -92,5 +101,21 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionRegister()
+    {
+        $model = new RegistrationForm();
+        if($model->load(Yii::$app->request->post())) {
+            if($user = $model->register()) {
+                if(Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('register', [
+            'model' => $model,
+        ]);
     }
 }
