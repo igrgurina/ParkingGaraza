@@ -1,9 +1,5 @@
-assets/*
-!assets/.gitignore
 runtime/*
 !runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
 
 # phpstorm project files
 .idea
@@ -20,7 +16,7 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-/vendor
+#/vendor
 
 # composer itself is not needed
 composer.phar

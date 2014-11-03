@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bf36f6df0c4c4951e46ac2af367a86d1",
+    "hash": "b1fa664c94fa7c742542b2db0131d8f0",
     "packages": [
         {
             "name": "2amigos/yii2-google-maps-library",
@@ -478,6 +478,51 @@
                 "stream"
             ],
             "time": "2014-08-17 21:15:53"
+        },
+        {
+            "name": "kolyunya/yii2-map-input-widget",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kolyunya/yii2-map-input-widget.git",
+                "reference": "ff6b582ca787795b7c3d78378545547bde25ee93"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kolyunya/yii2-map-input-widget/zipball/ff6b582ca787795b7c3d78378545547bde25ee93",
+                "reference": "ff6b582ca787795b7c3d78378545547bde25ee93",
+                "shasum": ""
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kolyunya\\yii2\\": "sources"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU GPL v3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Oleynikov Nikolay",
+                    "email": "OleynikovNY@mail.ru",
+                    "homepage": "http://github.com/Kolyunya/"
+                }
+            ],
+            "description": "Yii2 map input widget. Allows you to select geographcal coordinates via a human-friendly inteface.",
+            "homepage": "https://github.com/Kolyunya/yii2-map-input-widget",
+            "keywords": [
+                "coordinates",
+                "extension",
+                "geo-coordinates",
+                "geocoding",
+                "input",
+                "map",
+                "widget",
+                "yii2"
+            ],
+            "time": "2014-10-02 15:05:04"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1064,7 +1109,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kolyunya/yii2-map-input-widget": 20
+    },
     "prefer-stable": false,
     "platform": {
         "php": ">=5.4.0"
