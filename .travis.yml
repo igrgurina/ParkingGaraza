@@ -5,8 +5,9 @@ php:
  - 5.4
 
 before_script:
+  - cd app
   - composer install --dev --prefer-dist
   - php vendor/bin/codecept build
 
 script:
-  - php app/vendor/bin/codecept run functional
+  - php vendor/bin/codecept run functional
