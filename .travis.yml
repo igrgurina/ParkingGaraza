@@ -9,4 +9,4 @@ before_script:
   - php vendor/bin/codecept build
 
 script:
-  - cd app php vendor/bin/codecept run functional
+  - php app/vendor/bin/codecept run functional
