@@ -77,6 +77,7 @@ CREATE TABLE IF NOT EXISTS `parking` (
   `number_of_parking_spots` int(11) NOT NULL COMMENT 'number of parking spots',
   `company_id` int(11) NOT NULL COMMENT 'FOREIGN KEY company_id REFERENCES company(id)',
   `cost` int(11) NOT NULL,
+  `status` int(2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `cost` (`cost`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
