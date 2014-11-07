@@ -25,6 +25,7 @@ start | timestamp | when does reservation start
 end | timestamp | when does reservation end
 duration | timestamp | how long does reservation last
 period | timestamp | how often does reservation repeat
+status | int(2) | past, active, canceled, in the future, ...
 
 ###ParkingSpot
 Name | Type | Comments
