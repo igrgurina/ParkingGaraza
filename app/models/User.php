@@ -36,6 +36,7 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_BLOCKED = 0;
     const STATUS_ACTIVE = 1;
+    const STATUS_INACTIVE = 2;
 
     const ROLE_CLIENT = 10;
     const ROLE_ADMIN = 20;
@@ -55,7 +56,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_BLOCKED]],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_BLOCKED]],
 
             ['role', 'default', 'value' => self::ROLE_CLIENT],
 
@@ -211,5 +212,10 @@ class User extends ActiveRecord implements IdentityInterface
     public function block()
     {
         $this->status = static::STATUS_BLOCKED;
+    }
+    
+    public function inactive()
+    {
+        $this->status = static::STATUS_INACTIVE;
     }
 }
