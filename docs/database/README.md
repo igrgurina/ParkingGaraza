@@ -42,6 +42,7 @@ type | enum('garage','outdoor') | parking type
 numOfParkingSpots | int(11) | *maximum* number of parking spots
 companyId | int(11) | foreign key company(id)
 cost | int(11) | cost of parking per hour
+status | int(2) | open, closing, closed #make_enum
 
 ###Company
 Name | Type | Comments
