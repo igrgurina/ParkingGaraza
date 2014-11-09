@@ -12,8 +12,8 @@ name | varchar(40) | first name
 surname | varchar(40) | last name
 phone | varchar(20) | phone number
 creditCardNumber | int(20) | credit card number
-dateCreated | datetime | date of user registration
-lastLogin | timestamp | time of last login
+dateCreated | datetime | user registration date
+lastLogin | timestamp | time of the last login
 
 ###Reservation
 Name | Type | Comments
