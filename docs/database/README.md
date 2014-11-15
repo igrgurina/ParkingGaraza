@@ -1,66 +1,65 @@
 #Database
 ##Tables
 ###User
-Name | Type | Comments
+Ime atributa | Tip atributa | Opis
 --- | --- | ---
-id | int(11) | primary key auto increment
-OIB | int(11) | -
-username | varchar(16) | username
-email | varchar(70) | valid email address
-password | varchar(60) | hashed password
-name | varchar(40) | first name
-surname | varchar(40) | last name
-phone | varchar(20) | phone number
-creditCardNumber | int(20) | credit card number
-dateCreated | datetime | user registration date
-lastLogin | timestamp | time of the last login
+Id | integer | primarni ključ
+username | string | korisničko ime
+password | string | lozinka
+status | integer | aktivan ili blokiran
+isAdmin | boolean | povlašteni korisnik?
+OIB | integer | -
+firstName | string | ime korisnika
+lastName | string | prezime korisnika
+email | string | email adresa
+contactPhoneNumber | integer | broj kontakt telefona
+creditCardNumber | integer | broj kreditne kartice
+dateCreated | datetime | datum registracije korisnika
 
 ###Reservation
-Name | Type | Comments
+Ime atributa | Tip atributa | Opis
 --- | --- | ---
-id | int(11) | primary key auto increment
-userId | int(11) | foreign key user(id)
-status | int(2) | past, active, canceled, in the future, ...
-type | int(2) | reservation type enum - instant, recurring, permanent
-parkingSpotId | int(11) | foreign key parkingSpot(id)
-start | timestamp | when does reservation start
-end | timestamp | when does reservation end
-duration | timestamp | how long does reservation last
-period | timestamp | how often does reservation repeat
+Id | integer | primarni ključ
+userId | integer | korisnik koji je napravio rezervaciju
+parkingId | integer | parking na kojem vrijedi rezervacija
+type | integer | tip rezervacije - jednokratna, ponavljajuća, trajna
+status | integer | prošla, otkazana, ...
+startTime | timestamp | vrijeme kad registracija počinje
+endTime | timestamp | vrijeme kad rezervacija završava
+duration | integer | trajanje rezervacije u satima
+period | timestamp | period ponavljanja periodičke rezervacije
 
 ###ParkingSpot
-Name | Type | Comments
+Ime atributa | Tip atributa | Opis
 --- | --- | ---
-id | int(11) | primary key auto increment
-parkingId | int(11) | foreign key parking(id)
-sensor | boolean | true = taken, false = free
+Id | integer | primarni ključ
+parkingId | integer | parkirališno mjesto pripada jednom parkiralištu
+sensor | boolean | istina = zauzeto, laž = slobodno
 
 ###Parking
-Name | Type | Comments
+Ime atributa | Tip atributa | Opis
 --- | --- | ---
-id | int(11) | primary key auto increment
-locationId | int(11) | foreign key location(id)
-type | int(1) | parking type enum - garage, outdoor
-numOfParkingSpots | int(11) | *maximum* number of parking spots
-companyId | int(11) | foreign key company(id)
-cost | int(11) | cost of parking per hour
-status | int(2) | open, closing, closed #make_enum
+Id | integer | primarni ključ
+locationId | integer | lokacija parkirališta
+companyId | integer | parkiralište pripada kompaniji
+capacity | integer | broj parkirališnih mjesta
+costPerHour | integer | vrijednost koliko košta sat parkiranja
+status | integer | trenutni status parkirališta - otvoreno, zatvara se, zatvoreno
+type | integer | tip parkirališta - garaža ili otvoreno parkiralište
 
 ###Company
-Name | Type | Comments
+Ime atributa | Tip atributa | Opis
 --- | --- | ---
-id | int(11) | primary key auto increment
-name | varchar(32) | company name
-locationId | int(11) | foreign key location(id)
+Id | integer | primarni ključ
+locationId | integer | lokacija kompanije
+name | string | ime kompanije
 
 ###Location
-Name | Type | Comments
+Ime atributa | Tip atributa | Opis
 --- | --- | ---
-id | int(11) | primary key auto increment
-name | varchar(60) | location description
-address | varchar(60) | address
-lat | float | latitude
-lng | float | longitude
+Id | integer | primarni ključ
+latitude | double | geografska širina
+longitude | double | geografska dužina
 
 ##Indexes
 
