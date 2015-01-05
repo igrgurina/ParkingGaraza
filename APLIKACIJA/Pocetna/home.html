@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css.css"/>
+    <link type="text/css" rel="stylesheet" href="bootstrap.css"/>
+    <script type="text/javascript" src="bootstrap.js" ></script>
+    <script type="text/javascript" src="angular.js" ></script>
+
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="map.js" ></script>
+
+
+</head>
+<body>
+    <div id="header">
+        <div id="top" class="row center-block">
+            <div class="col-xs-2">
+           <a href="primjer.html"><img id="naslov" class="center-block" src="banner.png" /></a></div>
+            <div class="col-xs-10 razmak">
+                <a class="izbornik" href="home.html">Profil</a>
+                <a class="izbornik" href="home.html">Pomoć</a>
+                <a class="izbornik" href="home.html">Prijava</a>
+                <a class="izbornik" href="home.html">Registracija</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="body" class="row center-block">
+        <div id="lijevi" class="col-xs-6 center-block">
+            <p></p>
+            <div id="map_canvas" style="width:100%; height:100%"></div>
+        </div>
+        <div id="desni" class="col-xs-2 alert alert-info center-block" role="alert">
+            <h3>Cjenik:</h3>
+            <table class="table table-bordered tablica">
+                <thead>
+                <tr>
+                    <th>Usluga</th>
+                    <th>Cijena</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <td>Parkiranje</td>
+                    <td>3 kn/h</td>
+                </tr>
+                <tr>
+                    <td>Rezervacija</td>
+                    <td>400 kn/mj</td>
+                </tr>
+                </tbody>
+                </table>
+        </div>
+    </div>
+</body>
+</html>
