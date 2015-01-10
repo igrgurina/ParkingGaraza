@@ -1,0 +1,102 @@
+* {
+    font-family: Calibri;
+}
+
+/***** Sadržaj ******/
+
+#margina {
+    padding-top: 10px;
+}
+
+#smallHeight {
+    height: 34px;
+    padding: 6px 12px;
+}
+
+/***** Footer ******/
+
+#profilna {
+    padding-left: 0;
+    padding-right: 0;
+    width: 55px;
+}
+
+#naslov {
+    height: 150px;
+    margin-top: -95px;
+    border: 1px solid #528AD7;
+}
+
+#razmakL { /* Postavke za registriranog korisnika! */
+    /*margin-top: 15px;
+    word-spacing: 10px;*/
+    margin-top: -95px;
+    margin-left: 95px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #d1f5ff;
+    height: 150px;
+    width: 235px;
+    border: 1px solid #e7f1ff;
+}
+
+.razmakD { /* Isto za sve vrste korisnika! */
+    margin-top: 15px;
+    word-spacing: 10px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+#top {
+    position: absolute;
+    border: 1px solid #e7f1ff;
+    width: 100%;
+    height: 56px !important; /* NE MIJENJATI! */
+    background-color: #cdf0ff;
+}
+
+/***** Footer - izbornici ******/
+
+.ime {
+    color: #2b67cd;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.rezervacijaList {
+    color: #69a7e9;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: -0.8px;
+}
+
+.izbornik {
+    color: #528ad7;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    word-spacing: 1px;
+    letter-spacing: -0.3px;
+}
+
+.izbornik:hover {
+    color: #003f8d;
+    text-decoration: none;
+}
+
+/***** OVO NI SLUČAJNO NE BRISATI!!!!!!!!!!!!!! ******/
+
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin: 0 auto -56px;
+}
+
+.push {
+    height: 56px;
+}
