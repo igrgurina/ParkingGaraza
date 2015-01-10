@@ -1,0 +1,280 @@
+* {
+    font-family: Calibri;
+}
+
+.form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.table {
+    text-align: center;
+    letter-spacing: -0.7px;
+}
+
+.table-top {
+    text-align: center;
+    letter-spacing: -0.4px;
+}
+
+/***** Elementi unutar mape ******/
+
+#lijevi {
+    width: 100%;
+    height: 611px;
+    position: absolute;
+}
+
+#desni{
+    width: 200px;
+    position: absolute;
+    margin-left: 73%;
+    margin-top: -1%;
+}
+
+@media (min-width:1px) {
+    #desni {
+        margin-left: 71%;
+        zoom: 0.8;
+    }
+    #lijeviS {
+        zoom: 0.8;
+    }
+}
+
+@media (min-width:992px) {
+    #desni {
+        margin-left: 73%;
+        zoom: 1;
+    }
+    #lijeviS {
+        zoom: 1;
+    }
+}
+
+#lijeviS {
+    margin-left: 17px;
+}
+
+.lokacija {
+    margin-top: 25px;
+}
+
+/***** Footer ******/
+
+#profilna {
+    padding-left: 0;
+    padding-right: 0;
+    width: 55px;
+}
+
+#naslov {
+    height: 150px;
+    margin-top: -95px;
+    border: 1px solid #e7f1ff;
+}
+
+#razmakL { /* Postavke za registriranog korisnika! */
+    /*margin-top: 15px;
+    word-spacing: 10px;*/
+    margin-top: -95px;
+    margin-left: 95px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #d1f5ff;
+    height: 150px;
+    width: 235px;
+    border: 1px solid #e7f1ff;
+}
+
+.razmakD { /* Isto za sve vrste korisnika! */
+    margin-top: 15px;
+    word-spacing: 10px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+#top {
+    position: absolute;
+    border: 1px solid #e7f1ff;
+    width: 100%;
+    height: 56px !important; /* NE MIJENJATI! */
+    background-color: #cdf0ff;
+}
+
+/***** Footer - izbornici ******/
+
+.ime {
+    color: #2b67cd;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.rezervacijaList {
+    color: #69a7e9;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: -0.8px;
+}
+
+.izbornik {
+    color: #528ad7;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    word-spacing: 1px;
+    letter-spacing: -0.3px;
+}
+
+.izbornik:hover {
+    color: #003f8d;
+    text-decoration: none;
+}
+
+/***** Forma ******/
+.search-form .form-group {
+    float: left !important;
+    transition: all 0.95s, border-radius 0s;
+    width: 230px;
+    height: 35px;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    zoom: 2;
+}
+.search-form .form-group input.form-control {
+    padding-left: 43px;
+    border: 0 none;
+    background: transparent;
+    box-shadow: none;
+    display:block;
+    font-size: 16px;
+}
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+    display: none;
+}
+.search-form .form-group input.form-control:-moz-placeholder {
+    display: none;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+    display: none;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+    display: none;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+    width: 230px;
+    border-radius: 2px;
+}
+.search-form .form-group span.form-control-feedback {
+    position: absolute;
+    top: -1px;
+    left: -2px;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 40px;
+    line-height: 34px;
+    text-align: center;
+    color: #ffffff;
+    right: initial;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.search-button {
+    position: absolute;
+    top: -1px;
+    right: -2px;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 40px;
+    line-height: 34px;
+    text-align: center;
+    color: #003f8d;
+    left: initial;
+    font-size: 15px;
+    margin-top: 4.5%;
+}
+
+/***** Cjenik ******/
+
+#cjenikGL {
+    font-size: 36px;
+    font-weight: 600;
+    color: #003f8d;
+    margin-bottom: 2px;
+}
+
+/***** Onaj kružić + dio cjenika ******/
+.box {
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    background-color: #cdf0ff;
+    text-align: right;
+    display: block;
+    margin-top: 5%;
+    padding: 5px 5px 5px 5px;
+}
+.box-icon {
+    background-color: #003f8d;
+    border-radius: 50%;
+    display: table;
+    height: 57px;
+    width: 57px;
+    margin-top: -47px;
+    margin-left: -16px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    border: 1px solid #ccc;
+}
+.box-icon span {
+    color: #fff;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.info h4 {
+    font-size: 23px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.info > p {
+    color: #717171;
+    font-size: 16px;
+    padding-top: 2px;
+    text-align: center;
+}
+.info > a {
+    background-color: #003f8d;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    color: #fff;
+    transition: all 0.5s ease 0s;
+}
+.info > a:hover {
+    background-color: #529bd7;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+    color: #fff;
+    transition: all 0.5s ease 0s;
+}
+
+/***** OVO NI SLUČAJNO NE BRISATI!!!!!!!!!!!!!! ******/
+
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin: 0 auto -56px;
+}
+
+.push {
+    height: 56px;
+}
