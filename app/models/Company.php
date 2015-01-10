@@ -11,6 +11,9 @@ use Yii;
  * @property string $name
  * @property integer $location_id
  * @property string $price
+ *
+ * @property Location $location
+ * @property Parking[] $parkings
  */
 class Company extends \yii\db\ActiveRecord
 {
@@ -46,5 +49,21 @@ class Company extends \yii\db\ActiveRecord
             'location_id' => 'Location ID',
             'price' => 'Price',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocation()
+    {
+        return $this->hasOne(Location::className(), ['id' => 'location_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getParkings()
+    {
+        return $this->hasMany(Parking::className(), ['company_id' => 'id']);
     }
 }

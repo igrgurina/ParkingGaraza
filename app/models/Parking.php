@@ -13,6 +13,11 @@ use Yii;
  * @property integer $number_of_parking_spots
  * @property integer $company_id
  * @property integer $status
+ *
+ * @property Company $company
+ * @property Location $location
+ * @property ParkingSpot[] $parkingSpots
+ * @property Reservation[] $reservations
  */
 class Parking extends \yii\db\ActiveRecord
 {
@@ -49,5 +54,37 @@ class Parking extends \yii\db\ActiveRecord
             'company_id' => 'Company ID',
             'status' => 'Status',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCompany()
+    {
+        return $this->hasOne(Company::className(), ['id' => 'company_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocation()
+    {
+        return $this->hasOne(Location::className(), ['id' => 'location_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getParkingSpots()
+    {
+        return $this->hasMany(ParkingSpot::className(), ['parking_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getReservations()
+    {
+        return $this->hasMany(Reservation::className(), ['parking_id' => 'id']);
     }
 }

@@ -16,8 +16,9 @@ use Yii;
  * @property string $password
  * @property string $phone
  * @property integer $credit_card_number
- * @property integer $location_id
  * @property string $last_login
+ *
+ * TODO: session variables for latitude and longitude ?
  */
 class User extends \yii\db\ActiveRecord
 {
@@ -36,7 +37,7 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             [['OIB', 'username', 'first_name', 'last_name', 'email', 'password', 'phone', 'credit_card_number'], 'required'],
-            [['OIB', 'credit_card_number', 'location_id'], 'integer'],
+            [['OIB', 'credit_card_number'], 'integer'],
             [['last_login'], 'safe'],
             [['username'], 'string', 'max' => 16],
             [['first_name', 'last_name'], 'string', 'max' => 40],
@@ -61,7 +62,6 @@ class User extends \yii\db\ActiveRecord
             'password' => 'Password',
             'phone' => 'Phone',
             'credit_card_number' => 'Credit Card Number',
-            'location_id' => 'Location ID',
             'last_login' => 'Last Login',
         ];
     }

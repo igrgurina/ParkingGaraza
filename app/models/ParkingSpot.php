@@ -10,6 +10,8 @@ use Yii;
  * @property integer $id
  * @property integer $parking_id
  * @property integer $sensor
+ *
+ * @property Parking $parking
  */
 class ParkingSpot extends \yii\db\ActiveRecord
 {
@@ -42,5 +44,13 @@ class ParkingSpot extends \yii\db\ActiveRecord
             'parking_id' => 'Parking ID',
             'sensor' => 'Sensor',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getParking()
+    {
+        return $this->hasOne(Parking::className(), ['id' => 'parking_id']);
     }
 }
