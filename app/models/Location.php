@@ -49,6 +49,11 @@ class Location extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getParking()
+    {
+        return $this->hasOne(Parking::className(), ['location_id' => 'id']);
+    }
+
     /**
      * @return Parking[]
      */
