@@ -12,6 +12,8 @@ use Yii;
  * @property string $address
  * @property double $lat
  * @property double $lng
+ *
+ * @property Parking $parking
  */
 class Location extends \yii\db\ActiveRecord
 {
