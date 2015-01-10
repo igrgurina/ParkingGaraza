@@ -42,19 +42,22 @@ class ReservationController extends Controller
     }
 
     /**
-     * Displays a single Reservation model.
-     * @param integer $id
+     * [UC17] Lists all Reservation models.
      * @return mixed
      */
-    public function actionView($id)
+    public function actionAdmin()
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
+        $searchModel = new ReservationSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('admin', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Creates a new Reservation model.
+     * [UC10] Creates a new Reservation model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -72,33 +75,14 @@ class ReservationController extends Controller
     }
 
     /**
-     * Updates an existing Reservation model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Deletes an existing Reservation model.
+     * [UC11] Deletes an existing Reservation model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id)->cancel();
 
         return $this->redirect(['index']);
     }

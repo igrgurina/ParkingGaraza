@@ -15,6 +15,7 @@ use Yii;
  * @property string $end
  * @property string $duration
  * @property string $period
+ * @property bool $active
  */
 class Reservation extends \yii\db\ActiveRecord
 {
@@ -54,5 +55,11 @@ class Reservation extends \yii\db\ActiveRecord
             'duration' => 'Duration',
             'period' => 'Period',
         ];
+    }
+
+    public function cancel()
+    {
+        $this->active = false;
+        $this->save(false);
     }
 }
