@@ -27,7 +27,7 @@ class ParkingController extends Controller
     }
 
     /**
-     * [uc14] Admin manages all Parking models.
+     * [UC14] Admin manages all Parking models.
      * @return mixed
      */
     public function actionAdmin()
@@ -54,7 +54,7 @@ class ParkingController extends Controller
     }
 
     /**
-     * Creates a new Parking model.
+     * [UC14] Creates a new Parking model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -72,7 +72,7 @@ class ParkingController extends Controller
     }
 
     /**
-     * Updates an existing Parking model.
+     * [UC15] Updates an existing Parking model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +91,7 @@ class ParkingController extends Controller
     }
 
     /**
-     * Deletes an existing Parking model.
+     * [UC16] Deletes an existing Parking model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -100,7 +100,7 @@ class ParkingController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['admin']);
     }
 
     /**

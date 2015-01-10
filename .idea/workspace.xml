@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7db2343b-275b-47cd-b599-919f46ea2eed" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/company/updatePrice.php" afterPath="$PROJECT_DIR$/app/views/company/update.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/parking/index.php" afterPath="$PROJECT_DIR$/app/views/parking/admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/yiisoft/yii2/helpers/BaseFileHelper.php" afterPath="$PROJECT_DIR$/app/vendor/yiisoft/yii2/helpers/BaseFileHelper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/yiisoft/yii2/helpers/BaseUrl.php" afterPath="$PROJECT_DIR$/app/vendor/yiisoft/yii2/helpers/BaseUrl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/fzaninotto/faker/src/Faker/Provider/me_ME/Company.php" afterPath="$PROJECT_DIR$/app/vendor/fzaninotto/faker/src/Faker/Provider/me_ME/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/CompanyController.php" afterPath="$PROJECT_DIR$/app/controllers/CompanyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/yiisoft/yii2-gii/generators/form/Generator.php" afterPath="$PROJECT_DIR$/app/vendor/yiisoft/yii2-gii/generators/form/Generator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/yiisoft/yii2-gii/generators/module/Generator.php" afterPath="$PROJECT_DIR$/app/vendor/yiisoft/yii2-gii/generators/module/Generator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/ezyang/htmlpurifier/tests/HTMLPurifier/LexerTest.php" afterPath="$PROJECT_DIR$/app/vendor/ezyang/htmlpurifier/tests/HTMLPurifier/LexerTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/yiisoft/yii2-gii/Module.php" afterPath="$PROJECT_DIR$/app/vendor/yiisoft/yii2-gii/Module.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ParkingController.php" afterPath="$PROJECT_DIR$/app/controllers/ParkingController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/ezyang/htmlpurifier/tests/HTMLPurifier/SimpleTest/Reporter.php" afterPath="$PROJECT_DIR$/app/vendor/ezyang/htmlpurifier/tests/HTMLPurifier/SimpleTest/Reporter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/yiisoft/yii2/base/Theme.php" afterPath="$PROJECT_DIR$/app/vendor/yiisoft/yii2/base/Theme.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/yiisoft/yii2/web/UrlManager.php" afterPath="$PROJECT_DIR$/app/vendor/yiisoft/yii2/web/UrlManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/guzzlehttp/guzzle/tests/UrlTest.php" afterPath="$PROJECT_DIR$/app/vendor/guzzlehttp/guzzle/tests/UrlTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/yiisoft/yii2/requirements/YiiRequirementChecker.php" afterPath="$PROJECT_DIR$/app/vendor/yiisoft/yii2/requirements/YiiRequirementChecker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/parking/_search.php" afterPath="$PROJECT_DIR$/app/views/parking/_search.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/parking/create.php" afterPath="$PROJECT_DIR$/app/views/parking/create.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/bower/jquery/src/queue/delay.js" afterPath="$PROJECT_DIR$/app/vendor/bower/jquery/src/queue/delay.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tests/codeception/functional.suite.yml" afterPath="$PROJECT_DIR$/app/tests/codeception/functional.suite.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/bower/jquery/dist/jquery.js" afterPath="$PROJECT_DIR$/app/vendor/bower/jquery/dist/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/bower/jquery/src/sizzle/test/jquery.js" afterPath="$PROJECT_DIR$/app/vendor/bower/jquery/src/sizzle/test/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/main.php" afterPath="$PROJECT_DIR$/app/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/ezyang/htmlpurifier/tests/multitest.php" afterPath="$PROJECT_DIR$/app/vendor/ezyang/htmlpurifier/tests/multitest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/vendor/cebe/markdown/tests/profile.php" afterPath="$PROJECT_DIR$/app/vendor/cebe/markdown/tests/profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/parking/update.php" afterPath="$PROJECT_DIR$/app/views/parking/update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/parking/view.php" afterPath="$PROJECT_DIR$/app/views/parking/view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ParkingGaraza.iws" />
@@ -57,18 +31,8 @@
       <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/company/update.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="420">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParkingController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ParkingController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31604537" vertical-offset="285" max-vertical-offset="1830">
-              <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+            <state vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="420">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -89,6 +53,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="405">
               <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParkingController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/ParkingController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.534846" vertical-offset="0" max-vertical-offset="1830">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -129,16 +103,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="405">
               <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/parking/view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="675">
-              <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -331,6 +295,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="location" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ParkingGaraza" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ParkingGaraza" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -500,7 +486,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2336664" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -852,14 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/company/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="420">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/CompanyController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.7083335" vertical-offset="283" max-vertical-offset="900">
@@ -872,14 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.125" vertical-offset="0" max-vertical-offset="1275">
           <caret line="41" column="74" selection-start-line="41" selection-start-column="74" selection-end-line="41" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/parking/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="675">
-          <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
           <folding />
         </state>
       </provider>
@@ -924,10 +894,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/company/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="420">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ParkingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31604537" vertical-offset="285" max-vertical-offset="1830">
-          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.534846" vertical-offset="0" max-vertical-offset="1830">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
