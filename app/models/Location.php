@@ -12,10 +12,6 @@ use Yii;
  * @property string $address
  * @property double $lat
  * @property double $lng
- *
- * @property Company[] $companies
- * @property Parking[] $parkings
- * @property User[] $users
  */
 class Location extends \yii\db\ActiveRecord
 {
@@ -51,29 +47,5 @@ class Location extends \yii\db\ActiveRecord
             'lat' => 'Lat',
             'lng' => 'Lng',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCompanies()
-    {
-        return $this->hasMany(Company::className(), ['locationId' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getParkings()
-    {
-        return $this->hasMany(Parking::className(), ['locationId' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUsers()
-    {
-        return $this->hasMany(User::className(), ['locationId' => 'id']);
     }
 }

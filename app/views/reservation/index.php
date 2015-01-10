@@ -26,9 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'userId',
+            'user_id',
             'type',
-            'parkingSpotId',
+            'parking_spot_id',
             'start',
             // 'end',
             // 'duration',

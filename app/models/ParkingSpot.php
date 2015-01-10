@@ -8,11 +8,8 @@ use Yii;
  * This is the model class for table "parking_spot".
  *
  * @property integer $id
- * @property integer $parkingId
+ * @property integer $parking_id
  * @property integer $sensor
- *
- * @property Parking $parking
- * @property Reservation[] $reservations
  */
 class ParkingSpot extends \yii\db\ActiveRecord
 {
@@ -30,8 +27,8 @@ class ParkingSpot extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parkingId', 'sensor'], 'required'],
-            [['parkingId', 'sensor'], 'integer']
+            [['parking_id', 'sensor'], 'required'],
+            [['parking_id', 'sensor'], 'integer']
         ];
     }
 
@@ -42,29 +39,8 @@ class ParkingSpot extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'parkingId' => 'Parking ID',
+            'parking_id' => 'Parking ID',
             'sensor' => 'Sensor',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getParking()
-    {
-        return $this->hasOne(Parking::className(), ['id' => 'parkingId']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getReservations()
-    {
-        return $this->hasMany(Reservation::className(), ['parkingSpotId' => 'id']);
-    }
-
-    public function toggleStatus()
-    {
-        $this->sensor = !$this->sensor;
     }
 }

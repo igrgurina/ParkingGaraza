@@ -9,11 +9,8 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
- * @property integer $locationId
- * @property integer $price
- *
- * @property Location $location
- * @property Parking[] $parkings
+ * @property integer $location_id
+ * @property string $price
  */
 class Company extends \yii\db\ActiveRecord
 {
@@ -31,8 +28,9 @@ class Company extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['locationId'], 'required'],
-            [['locationId'], 'integer'],
+            [['location_id', 'price'], 'required'],
+            [['location_id'], 'integer'],
+            [['price'], 'number'],
             [['name'], 'string', 'max' => 32]
         ];
     }
@@ -45,24 +43,8 @@ class Company extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'locationId' => 'Location ID',
+            'location_id' => 'Location ID',
             'price' => 'Price',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getLocation()
-    {
-        return $this->hasOne(Location::className(), ['id' => 'locationId']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getParkings()
-    {
-        return $this->hasMany(Parking::className(), ['companyId' => 'id']);
     }
 }

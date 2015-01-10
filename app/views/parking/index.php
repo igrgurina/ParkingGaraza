@@ -26,11 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'locationId',
+            'location_id',
             'type',
-            'numberOfParkingSpots',
-            'companyId',
-            // 'cost',
+            'number_of_parking_spots',
+            'company_id',
+            // 'status',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

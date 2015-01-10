@@ -12,11 +12,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'userId')->textInput() ?>
+    <?= $form->field($model, 'user_id')->textInput() ?>
 
     <?= $form->field($model, 'type')->dropDownList([ 'instant' => 'Instant', 'recurring' => 'Recurring', 'permanent' => 'Permanent', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'parkingSpotId')->textInput() ?>
+    <?= $form->field($model, 'parking_spot_id')->textInput() ?>
 
     <?= $form->field($model, 'start')->textInput() ?>
 

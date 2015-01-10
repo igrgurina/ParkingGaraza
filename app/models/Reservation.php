@@ -8,16 +8,13 @@ use Yii;
  * This is the model class for table "reservation".
  *
  * @property integer $id
- * @property integer $userId
+ * @property integer $user_id
  * @property string $type
- * @property integer $parkingSpotId
+ * @property integer $parking_spot_id
  * @property string $start
  * @property string $end
  * @property string $duration
  * @property string $period
- *
- * @property ParkingSpot $parkingSpot
- * @property User $user
  */
 class Reservation extends \yii\db\ActiveRecord
 {
@@ -35,8 +32,8 @@ class Reservation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['userId', 'type', 'parkingSpotId'], 'required'],
-            [['userId', 'parkingSpotId'], 'integer'],
+            [['user_id', 'type', 'parking_spot_id'], 'required'],
+            [['user_id', 'parking_spot_id'], 'integer'],
             [['type'], 'string'],
             [['start', 'end', 'duration', 'period'], 'safe']
         ];
@@ -49,29 +46,13 @@ class Reservation extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'userId' => 'User ID',
+            'user_id' => 'User ID',
             'type' => 'Type',
-            'parkingSpotId' => 'Parking Spot ID',
+            'parking_spot_id' => 'Parking Spot ID',
             'start' => 'Start',
             'end' => 'End',
             'duration' => 'Duration',
             'period' => 'Period',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getParkingSpot()
-    {
-        return $this->hasOne(ParkingSpot::className(), ['id' => 'parkingSpotId']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUser()
-    {
-        return $this->hasOne(User::className(), ['id' => 'userId']);
     }
 }

@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use kolyunya\yii2\widgets\MapInputWidget;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Parking */
@@ -13,15 +12,15 @@ use kolyunya\yii2\widgets\MapInputWidget;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'locationId')->textInput() ?>
+    <?= $form->field($model, 'location_id')->textInput() ?>
 
     <?= $form->field($model, 'type')->dropDownList([ 'garage' => 'Garage', 'outdoor' => 'Outdoor', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'numberOfParkingSpots')->textInput() ?>
+    <?= $form->field($model, 'number_of_parking_spots')->textInput() ?>
 
-    <?= $form->field($model, 'companyId')->textInput() ?>
+    <?= $form->field($model, 'company_id')->textInput() ?>
 
-    <?= $form->field($model, 'cost')->textInput() ?>
+    <?= $form->field($model, 'status')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
