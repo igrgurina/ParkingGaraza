@@ -62,4 +62,9 @@ class ParkingSpot extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Reservation::className(), ['parkingSpotId' => 'id']);
     }
+
+    public function toggleStatus()
+    {
+        $this->sensor = !$this->sensor;
+    }
 }

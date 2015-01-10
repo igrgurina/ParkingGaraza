@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $name
  * @property integer $locationId
+ * @property integer $price
  *
  * @property Location $location
  * @property Parking[] $parkings
@@ -45,6 +46,7 @@ class Company extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'locationId' => 'Location ID',
+            'price' => 'Price',
         ];
     }
 
