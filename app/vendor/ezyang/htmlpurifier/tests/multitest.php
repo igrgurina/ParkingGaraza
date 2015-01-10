@@ -12,7 +12,7 @@
  *     "--distro=standalone".
  *   - quick, run only the most recent versions of each release series
  *   - disable-flush, by default flush is run, this disables it
- *   - file (f), xml, type: these correspond to the parameters in index.php
+ *   - file (f), xml, type: these correspond to the parameters in admin.php
  *
  * @note
  *   It requires a script called phpv that takes an extra argument (the
@@ -125,7 +125,7 @@ foreach ($versions_to_test as $version) {
             case 'normal':
                 $test->add(
                     new CliTestCase(
-                        "$phpv $version index.php --xml $flush_arg $type_arg --disable-phpt $file_arg",
+                        "$phpv $version admin.php --xml $flush_arg $type_arg --disable-phpt $file_arg",
                         $AC['quiet'], $size
                     )
                 );
@@ -133,7 +133,7 @@ foreach ($versions_to_test as $version) {
             case 'standalone':
                 $test->add(
                     new CliTestCase(
-                        "$phpv $version index.php --xml $flush_arg $type_arg --standalone --disable-phpt $file_arg",
+                        "$phpv $version admin.php --xml $flush_arg $type_arg --standalone --disable-phpt $file_arg",
                         $AC['quiet'], $size
                     )
                 );
@@ -143,7 +143,7 @@ foreach ($versions_to_test as $version) {
     if (!$AC['disable-phpt'] && (!$AC['type'] || $AC['type'] == 'phpt')) {
         $test->add(
             new CliTestCase(
-                $AC['php'] . " index.php --xml --php \"$phpv $version\" --type=phpt",
+                $AC['php'] . " admin.php --xml --php \"$phpv $version\" --type=phpt",
                 $AC['quiet'], $size
             )
         );

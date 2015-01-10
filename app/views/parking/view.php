@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Parking */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Parkings', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Parkings', 'url' => ['admin']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="parking-view">
@@ -29,11 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'locationId',
+            'location_id',
             'type',
-            'numberOfParkingSpots',
-            'companyId',
-            'cost',
+            'number_of_parking_spots',
+            'company_id',
+            'status',
         ],
     ]) ?>
 

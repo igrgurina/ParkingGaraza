@@ -39,7 +39,7 @@ AppAsset::register($this);
                     [
                         'label' => 'Parking',
                         'items' => [
-                            ['label' => 'Index', 'url' => ['/parking/index']],
+                            ['label' => 'Admin', 'url' => ['/parking/admin']],
                             ['label' => 'Create', 'url' => ['/parking/create']],
                         ],
                     ],

@@ -12,6 +12,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;
 use yii\helpers\Json;
 use yii\web\JsExpression;
+use yii\base\InvalidParamException;
 
 /**
  * ObjectAbstract
@@ -70,7 +71,9 @@ abstract class ObjectAbstract extends Object
         }
         if ($autoGenerate) {
             $reflection = new \ReflectionClass($this);
-            $this->_name = self::$autoNamePrefix . Inflector::variablize($reflection->getShortName()) . self::$counter++;
+            $this->_name = self::$autoNamePrefix . Inflector::variablize(
+                    $reflection->getShortName()
+                ) . self::$counter++;
         }
         return $this->_name;
     }
@@ -117,7 +120,7 @@ abstract class ObjectAbstract extends Object
         $options = [];
 
         foreach ($this->options as $key => $value) {
-            if($value == null) {
+            if ($value === null) {
                 continue;
             }
             $options[$key] = $this->encode($value);
@@ -127,17 +130,31 @@ abstract class ObjectAbstract extends Object
         return Json::encode($options);
     }
 
-    protected function encode($value) {
+    /**
+     * Makes sure a value is properly set to be JSON encoded
+     *
+     * @param mixed $value the value to encode
+     *
+     * @return string
+     */
+    protected function encode($value)
+    {
         if (is_object($value) && method_exists($value, 'getJs')) {
             return new JsExpression($value->getJs());
         } elseif (is_bool($value)) {
             return new JsExpression(($value ? 'true' : 'false'));
         } elseif (is_array($value)) {
             $parsed = [];
-            foreach($value as $child) {
+            foreach ($value as $child) {
                 $parsed[] = $this->encode($child);
             }
             return $parsed;
+        }
+        try {
+            // a value may contain a valid JSON string
+            return Json::decode($value);
+        } catch (InvalidParamException $e) {
+
         }
         return $value;
     }

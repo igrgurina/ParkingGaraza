@@ -17,11 +17,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'userId') ?>
+    <?= $form->field($model, 'user_id') ?>
 
     <?= $form->field($model, 'type') ?>
 
-    <?= $form->field($model, 'parkingSpotId') ?>
+    <?= $form->field($model, 'parking_spot_id') ?>
 
     <?= $form->field($model, 'start') ?>
 

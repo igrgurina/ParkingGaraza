@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link type="text/css" rel="stylesheet" href="css.css"/>
+    <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="font-awesome/css/font-awesome.css"/>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js" ></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="wrapper">
+    <div id="margina" class="container">
+    <div class="row up">
+    <div class="col-xs-6">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputParking">Unesi ime parkirališta ili klikni na kartu:</label>
+            <input type="text" class="form-control" id="exampleInputParking" placeholder="Ime parkirališta">
+        </div>
+        <p id="smallHeight" class="alert alert-info">Broj slobodnih parkirališnih mjesta: <strong>13</strong>/50</p>
+        <!-- Trebalo bi vratiti broj slobodnih parkirališnih mjesta kad se unese ili odabere parkiralište? -->
+        <div class="form-group">
+            <label for="dateTime">Ubaciti https://github.com/2amigos/yii2-date-time-picker-widget</label>
+            <input type="text" class="form-control" id="dateTime" placeholder="Odaberi datum i vrijeme i UBACITI GOOGLE MAPS YII DODATAK DESNO UMJESTO iFRAMEA">
+        </div>
+        <p style="font-size: 16px;font-weight: 600; margin-bottom: 0px">Odaberi vrstu rezervacije:</p>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="jednokratna" checked>
+                Jednokratna rezervacija
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="ponavljajuca">
+                Ponavljajuća rezervacija
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">Pošalji</button>
+    </form>
+    </div><div class="col-xs-6">
+        <iframe width="100%" height="550" frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/view?zoom=11&center=45.8150%2C15.9819&key=AIzaSyBJKN8hByYJnETUJyGS_Levhjy4mgNJtJ8"></iframe>
+    </div>
+    </div>
+    </div>
+    <div class="push"></div>
+</div>
+<div style="width: 100%;">
+    <div id="top" class="row center-block">
+        <div id="profilna" class="col-xs-2">
+            <a href=""><img id="naslov" src="https://d2g50grrs5gsgl.cloudfront.net/images/placeholders/default-user-pic-display-fp-25783b166928d6761389e6d34279290e.gif" /></a></div>
+        <div id="razmakL" class="col-xs-2">
+            <ul class="list-unstyled" style="margin-bottom: 0">
+                <li class="ime">antetmc2</li>
+                <li><a class="izbornik" href="">Profil</a></li>
+                <li><a class="izbornik" href="">Rezervacije</a></li>
+                <li class="rezervacijaList">Rezervacija: 10.01.2015 10:00, parkiralište kod Ivanove zgrade :P</li>
+            </ul>
+            <span style="float: right"><a class="izbornik" href="" style="font-size: 15px">Odjava</a></span>
+        </div>
+        <div class="col-xs-pull-8 razmakD">
+            <a class="izbornik" href="">Upute</a>
+            <a class="izbornik" href="">O nama</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

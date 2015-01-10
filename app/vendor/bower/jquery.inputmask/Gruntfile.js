@@ -13,12 +13,18 @@ module.exports = function (grunt) {
         var uglifyConfig = {};
         var srcFiles = grunt.file.expand(path + "/*.js");
         for (var srcNdx in srcFiles) {
-            var dstFile = srcFiles[srcNdx].replace("js/", "");
+            var dstFile = srcFiles[srcNdx].replace("js/", ""),
+                dstFileMin = dstFile.replace(".js", ".min.js");
             wrapAMDLoader(srcFiles[srcNdx], "build/" + dstFile, dstFile.indexOf("extension") == -1 ? ["jquery"] : ["jquery", "./jquery.inputmask"]);
             uglifyConfig[dstFile] = {
                 dest: 'dist/inputmask/' + dstFile,
                 src: "build/" + dstFile,
-                options: { banner: createBanner(dstFile), beautify: true, mangle: false }
+                options: { banner: createBanner(dstFile), beautify: true, mangle: false, preserveComments: "some", ASCIIOnly: true }
+            };
+            uglifyConfig[dstFileMin] = {
+                dest: 'dist/inputmask/' + dstFileMin,
+                src: "build/" + dstFile,
+                options: { banner: createBanner(dstFileMin), preserveComments: "some", ASCIIOnly: true }
             };
         }
 
@@ -28,13 +34,13 @@ module.exports = function (grunt) {
             files: {
                 'dist/<%= pkg.name %>.bundle.js': srcFiles
             },
-            options: { banner: createBanner('<%= pkg.name %>.bundle'), beautify: true, mangle: false }
+            options: { banner: createBanner('<%= pkg.name %>.bundle'), beautify: true, mangle: false, preserveComments: "some", ASCIIOnly: true }
         }
         uglifyConfig["inputmaskbundlemin"] = {
             files: {
                 'dist/<%= pkg.name %>.bundle.min.js': srcFiles
             },
-            options: { banner: createBanner('<%= pkg.name %>.bundle') }
+            options: { banner: createBanner('<%= pkg.name %>.bundle'), preserveComments: "some", ASCIIOnly: true }
         }
         return uglifyConfig;
     }
