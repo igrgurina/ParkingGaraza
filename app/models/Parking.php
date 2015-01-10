@@ -87,4 +87,19 @@ class Parking extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Reservation::className(), ['parking_id' => 'id']);
     }
+
+    /**Returns number of free spots
+     *
+     * @return int
+     */
+    public function getFreeSpotNum()
+    {
+        $num = 0;
+        foreach ($this->$parkingSpots as $spot)
+        {
+            if($spot->$sensor == 0)
+                $num++;
+        }
+        return $num;
+    }
 }

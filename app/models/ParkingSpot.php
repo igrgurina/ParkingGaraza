@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property integer $parking_id
- * @property integer $sensor
+ * @property integer $sensor  is one if taken
  *
  * @property Parking $parking
  */
