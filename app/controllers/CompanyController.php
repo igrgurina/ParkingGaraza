@@ -26,31 +26,19 @@ class CompanyController extends Controller
         ];
     }
 
-    public function actionUpdatePrice($id)
+    public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
         if($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->goBack(); // $this->redirect(['view', 'id' => $model->id]);
         }
         else {
-            return $this->render('updatePrice', [
+            return $this->render('update', [
                 'model' => $model,
             ]);
         }
 
-    }
-
-    /**
-     * Displays a single Company model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
     }
 
     /**

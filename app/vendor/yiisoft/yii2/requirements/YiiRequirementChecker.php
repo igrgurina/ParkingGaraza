@@ -157,9 +157,9 @@ class YiiRequirementChecker
         }
         $baseViewFilePath = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'views';
         if (!empty($_SERVER['argv'])) {
-            $viewFileName = $baseViewFilePath . DIRECTORY_SEPARATOR . 'console' . DIRECTORY_SEPARATOR . 'index.php';
+            $viewFileName = $baseViewFilePath . DIRECTORY_SEPARATOR . 'console' . DIRECTORY_SEPARATOR . 'admin.php';
         } else {
-            $viewFileName = $baseViewFilePath . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'index.php';
+            $viewFileName = $baseViewFilePath . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'admin.php';
         }
         $this->renderViewFile($viewFileName, $this->result);
     }

@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
 <div class="parking-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['admin'],
         'method' => 'get',
     ]); ?>
 

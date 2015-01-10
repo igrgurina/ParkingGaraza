@@ -27,15 +27,15 @@ class ParkingController extends Controller
     }
 
     /**
-     * Lists all Parking models.
+     * [uc14] Admin manages all Parking models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionAdmin()
     {
         $searchModel = new ParkingSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('admin', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

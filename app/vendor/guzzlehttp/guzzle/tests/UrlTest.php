@@ -44,8 +44,8 @@ class UrlTest extends \PHPUnit_Framework_TestCase
 
     public function testValidatesUrlPartsInFactory()
     {
-        $url = Url::fromString('/index.php');
-        $this->assertEquals('/index.php', (string) $url);
+        $url = Url::fromString('/admin.php');
+        $this->assertEquals('/admin.php', (string) $url);
         $this->assertFalse($url->isAbsolute());
 
         $url = 'http://michael:test@test.com:80/path/123?q=abc#test';

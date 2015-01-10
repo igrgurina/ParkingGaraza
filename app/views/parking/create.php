@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Parking */
 
 $this->title = 'Create Parking';
-$this->params['breadcrumbs'][] = ['label' => 'Parkings', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Parkings', 'url' => ['admin']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="parking-create">

@@ -56,7 +56,7 @@ class HTMLPurifier_SimpleTest_Reporter extends HTMLReporter
         $testcase = $list[1];
         if (class_exists($testcase, false)) $file = str_replace('_', '/', $testcase) . '.php';
         else $file = $testcase;
-        $list[1] = '<a href="index.php?file=' . $file . '">' . $testcase . '</a>';
+        $list[1] = '<a href="admin.php?file=' . $file . '">' . $testcase . '</a>';
         return $list;
     }
 

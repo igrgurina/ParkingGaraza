@@ -347,8 +347,8 @@ class BaseFileHelper
      *   and '.svn/' matches directory paths ending with '.svn'.
      *   If the pattern does not contain a slash /, it is treated as a shell glob pattern and checked for a match against the pathname relative to $dir.
      *   Otherwise, the pattern is treated as a shell glob suitable for consumption by fnmatch(3) with the FNM_PATHNAME flag: wildcards in the pattern will not match a / in the pathname.
-     *   For example, "views/*.php" matches "views/index.php" but not "views/controller/index.php".
-     *   A leading slash matches the beginning of the pathname. For example, "/*.php" matches "index.php" but not "views/start/index.php".
+     *   For example, "views/*.php" matches "views/admin.php" but not "views/controller/admin.php".
+     *   A leading slash matches the beginning of the pathname. For example, "/*.php" matches "admin.php" but not "views/start/admin.php".
      *   An optional prefix "!" which negates the pattern; any matching file excluded by a previous pattern will become included again.
      *   If a negated pattern matches, this will override lower precedence patterns sources. Put a backslash ("\") in front of the first "!"
      *   for patterns that begin with a literal "!", for example, "\!important!.txt".
