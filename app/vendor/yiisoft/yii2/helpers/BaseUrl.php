@@ -30,7 +30,7 @@ class BaseUrl
      * array format must be:
      *
      * ```php
-     * // generates: /admin.php?r=site/index&param1=value1&param2=value2
+     * // generates: /index.php?r=site/index&param1=value1&param2=value2
      * ['site/index', 'param1' => 'value1', 'param2' => 'value2']
      * ```
      *
@@ -38,7 +38,7 @@ class BaseUrl
      * For example,
      *
      * ```php
-     * // generates: /admin.php?r=site/index&param1=value1#name
+     * // generates: /index.php?r=site/index&param1=value1#name
      * ['site/index', 'param1' => 'value1', '#' => 'name']
      * ```
      *
@@ -61,10 +61,10 @@ class BaseUrl
      * // /index?r=site/index&src=ref1#name
      * echo Url::toRoute(['site/index', 'src' => 'ref1', '#' => 'name']);
      *
-     * // http://www.example.com/admin.php?r=site/index
+     * // http://www.example.com/index.php?r=site/index
      * echo Url::toRoute('site/index', true);
      *
-     * // https://www.example.com/admin.php?r=site/index
+     * // https://www.example.com/index.php?r=site/index
      * echo Url::toRoute('site/index', 'https');
      * ```
      *
@@ -81,7 +81,7 @@ class BaseUrl
      */
     public static function toRoute($route, $scheme = false)
     {
-        $route = (array)$route;
+        $route = (array) $route;
         $route[0] = static::normalizeRoute($route[0]);
 
         if ($scheme) {

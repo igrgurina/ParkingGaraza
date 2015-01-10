@@ -157,9 +157,9 @@ class YiiRequirementChecker
         }
         $baseViewFilePath = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'views';
         if (!empty($_SERVER['argv'])) {
-            $viewFileName = $baseViewFilePath . DIRECTORY_SEPARATOR . 'console' . DIRECTORY_SEPARATOR . 'admin.php';
+            $viewFileName = $baseViewFilePath . DIRECTORY_SEPARATOR . 'console' . DIRECTORY_SEPARATOR . 'index.php';
         } else {
-            $viewFileName = $baseViewFilePath . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'admin.php';
+            $viewFileName = $baseViewFilePath . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'index.php';
         }
         $this->renderViewFile($viewFileName, $this->result);
     }
@@ -199,7 +199,7 @@ class YiiRequirementChecker
             return false;
         }
 
-        return ((integer) $value == 1 || strtolower($value) == 'on');
+        return ((int) $value == 1 || strtolower($value) == 'on');
     }
 
     /**
@@ -244,7 +244,7 @@ class YiiRequirementChecker
             return 0;
         }
         if (is_numeric($verboseSize)) {
-            return (integer) $verboseSize;
+            return (int) $verboseSize;
         }
         $sizeUnit = trim($verboseSize, '0123456789');
         $size = str_replace($sizeUnit, '', $verboseSize);

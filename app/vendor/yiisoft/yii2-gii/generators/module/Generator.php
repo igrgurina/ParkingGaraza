@@ -132,7 +132,7 @@ EOD;
             $this->render("controller.php")
         );
         $files[] = new CodeFile(
-            $modulePath . '/views/default/admin.php',
+            $modulePath . '/views/default/index.php',
             $this->render("view.php")
         );
 

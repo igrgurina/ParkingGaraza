@@ -14,7 +14,6 @@ return array(
     'yii\\codeception\\' => array($vendorDir . '/yiisoft/yii2-codeception'),
     'yii\\bootstrap\\' => array($vendorDir . '/yiisoft/yii2-bootstrap'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
-    'kolyunya\\yii2\\' => array($vendorDir . '/kolyunya/yii2-map-input-widget/sources'),
     'dosamigos\\google\\maps\\' => array($vendorDir . '/2amigos/yii2-google-maps-library'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
     'GuzzleHttp\\Stream\\' => array($vendorDir . '/guzzlehttp/streams/src'),

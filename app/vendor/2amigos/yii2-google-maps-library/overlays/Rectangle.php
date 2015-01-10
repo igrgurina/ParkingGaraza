@@ -4,9 +4,10 @@
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
-namespace dosamigos\google\maps;
+namespace dosamigos\google\maps\overlays;
 
-use dosamigos\google\maps\overlays\RectangleOptions;
+use dosamigos\google\maps\LatLngBounds;
+use dosamigos\google\maps\OverlayTrait;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 
@@ -48,7 +49,7 @@ class Rectangle extends RectangleOptions
 
     /**
      * Returns center of bounds
-     * @return LatLng|null
+     * @return \dosamigos\google\maps\LatLng|null
      */
     public function getCenterOfBounds()
     {
@@ -69,7 +70,7 @@ class Rectangle extends RectangleOptions
         $js[] = "var {$this->getName()} = new google.maps.Rectangle({$this->getEncodedOptions()});";
 
         foreach($this->events as $event) {
-            /** @var Event $event */
+            /** @var \dosamigos\google\maps\Event $event */
             $js[] = $event->getJs($this->getName());
         }
 

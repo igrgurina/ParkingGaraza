@@ -48,4 +48,12 @@ class Location extends \yii\db\ActiveRecord
             'lng' => 'Lng',
         ];
     }
+
+    /**
+     * @return Parking[]
+     */
+    public function suggestParkings()
+    {
+        return $this->findBySql(); // TODO: nađi najbliža parkirališta
+    }
 }

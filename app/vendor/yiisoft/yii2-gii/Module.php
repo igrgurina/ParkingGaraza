@@ -31,10 +31,10 @@ use yii\web\ForbiddenHttpException;
  * you want to make it accessible on other machines.
  *
  * With the above configuration, you will be able to access GiiModule in your browser using
- * the URL `http://localhost/path/to/admin.php?r=gii`
+ * the URL `http://localhost/path/to/index.php?r=gii`
  *
  * If your application enables [[\yii\web\UrlManager::enablePrettyUrl|pretty URLs]],
- * you can then access Gii via URL: `http://localhost/path/to/admin.php/gii`
+ * you can then access Gii via URL: `http://localhost/path/to/index.php/gii`
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
@@ -88,7 +88,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
             $app->getUrlManager()->addRules([
                 $this->id => $this->id . '/default/index',
                 $this->id . '/<id:\w+>' => $this->id . '/default/view',
-                $this->id . '/<controller:\w+>/<action:\w+>' => $this->id . '/<controller>/<action>',
+                $this->id . '/<controller:[\w\-]+>/<action:[\w\-]+>' => $this->id . '/<controller>/<action>',
             ], false);
         } elseif ($app instanceof \yii\console\Application) {
             $app->controllerMap[$this->id] = [

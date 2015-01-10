@@ -46,7 +46,7 @@ class UrlManager extends Component
      * @var boolean whether to enable pretty URLs. Instead of putting all parameters in the query
      * string part of a URL, pretty URLs allow using path info to represent some of the parameters
      * and can thus produce more user-friendly URLs, such as "/news/Yii-is-released", instead of
-     * "/admin.php?r=news/view&id=100".
+     * "/index.php?r=news/view&id=100".
      */
     public $enablePrettyUrl = false;
     /**
@@ -275,7 +275,7 @@ class UrlManager extends Component
      * array format must be:
      *
      * ```php
-     * // generates: /admin.php?r=site/index&param1=value1&param2=value2
+     * // generates: /index.php?r=site/index&param1=value1&param2=value2
      * ['site/index', 'param1' => 'value1', 'param2' => 'value2']
      * ```
      *
@@ -283,7 +283,7 @@ class UrlManager extends Component
      * For example,
      *
      * ```php
-     * // generates: /admin.php?r=site/index&param1=value1#name
+     * // generates: /index.php?r=site/index&param1=value1#name
      * ['site/index', 'param1' => 'value1', '#' => 'name']
      * ```
      *
