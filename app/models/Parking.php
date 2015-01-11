@@ -115,4 +115,7 @@ class Parking extends \yii\db\ActiveRecord
     {
         return Parking::find()->where('freeParkingSpotsCount > :num', ['num' => 9])->all();
     }
+
+
+
 }

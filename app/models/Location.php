@@ -86,5 +86,11 @@ class Location extends \yii\db\ActiveRecord
         return ($miles * 1.609344);
     }
 
+    /*
+     *  Returns marker to location
+     */
 
+    public function getMarker() {
+
+    }
 }

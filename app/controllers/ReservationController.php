@@ -65,8 +65,9 @@ class ReservationController extends Controller
     {
         $model = new Reservation();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->isPossible()) {
+            if ($model->save())
+                return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
