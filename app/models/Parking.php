@@ -18,7 +18,8 @@ use Yii;
  * @property Location $location
  * @property \yii\db\ActiveQuery $parkingSpots
  * @property Reservation[] $reservations
- * @property integer $freeSpotNum
+ * @property integer $freeParkingSpotsCount
+ * @property \yii\db\ActiveQuery $freeParkingSpots
  */
 class Parking extends \yii\db\ActiveRecord
 {
@@ -89,13 +90,28 @@ class Parking extends \yii\db\ActiveRecord
         return $this->hasMany(Reservation::className(), ['parking_id' => 'id']);
     }
 
+    public function getFreeParkingSpots()
+    {
+        $sql = 'SELECT * FROM parking JOIN parking_spot ON parking_id = parking.id WHERE parking_spot.sensor = 1';
+
+        return Parking::findBySql($sql)->all();
+    }
+
     /**
      * Returns number of free spots
      *
      * @return integer
      */
-    public function getFreeSpotNum()
+    public function getFreeParkingSpotsCount()
     {
-        return $this->parkingSpots->where(['sensor' => true])->count();
+        return count($this->freeParkingSpots);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public static function findBestSuggestion()
+    {
+        return Parking::find()->where('freeParkingSpotsCount > :num', ['num' => 9])->all();
     }
 }

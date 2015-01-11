@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'location_id',
             'type',
             'number_of_parking_spots',
+            'freeParkingSpotsCount',
             'company_id',
             // 'status',
 
