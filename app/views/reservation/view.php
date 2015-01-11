@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'user_id',
             'type',
-            'parking_spot_id',
+            'parking_id',
             'start',
             'end',
             'duration',

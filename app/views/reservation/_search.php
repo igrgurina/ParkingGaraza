@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'type') ?>
 
-    <?= $form->field($model, 'parking_spot_id') ?>
+    <?= $form->field($model, 'parking_id') ?>
 
     <?= $form->field($model, 'start') ?>
 

@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'type')->dropDownList([ 'instant' => 'Instant', 'recurring' => 'Recurring', 'permanent' => 'Permanent', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'parking_spot_id')->textInput() ?>
+    <?= $form->field($model, 'parking_id')->textInput() ?>
 
     <?= $form->field($model, 'start')->textInput() ?>
 
