@@ -84,7 +84,7 @@ class Reservation extends \yii\db\ActiveRecord
     }
 
     /*
-     * Attempts to create reservation
+     * Checks whether it's possible to add a reservation
      */
 
     public function isPossible()
@@ -107,7 +107,7 @@ class Reservation extends \yii\db\ActiveRecord
                 if ($this->activeReservationsAt($i, $j->add(new DateInterval('PT' . $this->duration . 'H')))
                         >= $this->parking->number_of_parking_spots)
                     return false;
-                // if ( foo(start, start+duration) >= totalSpotNum) return false;
+                // if ( activeReservationsAt(start, start+duration) >= totalSpotNum) return false;
                 // ako prezivi sve iteracije, znaci da nema kolizije i vraca true
 
             }
