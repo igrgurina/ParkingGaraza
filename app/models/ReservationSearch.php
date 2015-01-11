@@ -18,7 +18,7 @@ class ReservationSearch extends Reservation
     public function rules()
     {
         return [
-            [['id', 'user_id', 'parking_spot_id'], 'integer'],
+            [['id', 'user_id', 'parking_id'], 'integer'],
             [['type', 'start', 'end', 'duration', 'period'], 'safe'],
         ];
     }
@@ -54,7 +54,7 @@ class ReservationSearch extends Reservation
         $query->andFilterWhere([
             'id' => $this->id,
             'user_id' => $this->user_id,
-            'parking_spot_id' => $this->parking_spot_id,
+            'parking_id' => $this->parking_id,
             'start' => $this->start,
             'end' => $this->end,
             'duration' => $this->duration,
