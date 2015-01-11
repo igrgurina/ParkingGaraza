@@ -16,8 +16,9 @@ use Yii;
  *
  * @property Company $company
  * @property Location $location
- * @property ParkingSpot[] $parkingSpots
+ * @property \yii\db\ActiveQuery $parkingSpots
  * @property Reservation[] $reservations
+ * @property integer $freeSpotNum
  */
 class Parking extends \yii\db\ActiveRecord
 {
@@ -88,18 +89,13 @@ class Parking extends \yii\db\ActiveRecord
         return $this->hasMany(Reservation::className(), ['parking_id' => 'id']);
     }
 
-    /**Returns number of free spots
+    /**
+     * Returns number of free spots
      *
-     * @return int
+     * @return integer
      */
     public function getFreeSpotNum()
     {
-        $num = 0;
-        foreach ($this->$parkingSpots as $spot)
-        {
-            if($spot->$sensor == 0)
-                $num++;
-        }
-        return $num;
+        return $this->parkingSpots->where(['sensor' => true])->count();
     }
 }
