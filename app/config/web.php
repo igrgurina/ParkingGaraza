@@ -19,7 +19,7 @@ $config = [
             'defaultRoles' => ['visitor, client, admin'],
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'dektrium\user\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -44,6 +44,12 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,
+    'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'enableConfirmation' => false
+        ]
+    ],
 ];
 
 if (YII_ENV_DEV) {
