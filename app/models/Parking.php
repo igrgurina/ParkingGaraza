@@ -90,11 +90,12 @@ class Parking extends \yii\db\ActiveRecord
         return $this->hasMany(Reservation::className(), ['parking_id' => 'id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getFreeParkingSpots()
     {
-        $sql = 'SELECT * FROM parking JOIN parking_spot ON parking_id = parking.id WHERE parking_spot.sensor = 1';
-
-        return Parking::findBySql($sql)->all();
+        return $this->hasMany(ParkingSpot::className(), ['parking_id' => 'id'])->onCondition(['sensor' => 1]);
     }
 
     /**
