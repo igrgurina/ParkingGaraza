@@ -156,5 +156,5 @@ $RECYCLE.BIN/
 .DS_Store
 
 # PhpStorm files
-.idea/
-.idea/*.xml
+.idea/*
+*.xml

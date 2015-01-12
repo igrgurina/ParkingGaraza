@@ -42,12 +42,24 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@app/views/user'
+                ]
+            ]
+        ]
     ],
     'params' => $params,
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',
-            'enableConfirmation' => false
+            'enableConfirmation' => false,
+            'modelMap' => [
+                'User' => 'app\models\User',
+                'RegistrationForm' => 'app\models\RegistrationForm'
+            ],
+            'admins' => ['admin']
         ]
     ],
 ];
