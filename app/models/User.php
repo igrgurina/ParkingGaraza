@@ -31,7 +31,8 @@ class User extends BaseUser
      */
     public function getIsAdmin()
     {
-        return $this->role === static::ROLE_ADMIN;
+        Yii::getLogger()->log($this->role . ' is the role of the user',Logger::LEVEL_INFO);
+        return $this->role == User::ROLE_ADMIN;
     }
 
     public function scenarios()

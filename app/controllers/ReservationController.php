@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use Yii;
 use app\models\Reservation;
 use app\models\ReservationSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -17,6 +19,24 @@ class ReservationController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'admin', 'create', 'delete'],
+                'rules' => [
+                    [
+                        'actions' => ['index', 'create', 'delete'],
+                        'allow' => true,
+                        'roles' => ['@']
+                    ],
+                    [
+                        'actions' => ['admin'],
+                        'allow' => true,
+                        'matchCallback' => function($rule, $action) {
+                            return Yii::$app->user->identity->isAdmin;
+                        }
+                    ],
+                ]
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

@@ -19,7 +19,7 @@ $config = [
             'defaultRoles' => ['visitor, client, admin'],
         ],
         'user' => [
-            'identityClass' => 'dektrium\user\models\User',
+            'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -59,7 +59,6 @@ $config = [
                 'User' => 'app\models\User',
                 'RegistrationForm' => 'app\models\RegistrationForm'
             ],
-            'admins' => ['admin']
         ]
     ],
 ];

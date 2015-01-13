@@ -51,7 +51,7 @@ class RegistrationForm extends RegForm
     public function rules()
     {
         return [
-            /*['username', 'filter', 'filter' => 'trim'],
+            ['username', 'filter', 'filter' => 'trim'],
             ['username', 'match', 'pattern' => '/^[a-zA-Z]\w+$/'],
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => $this->module->modelMap['User'],
@@ -71,7 +71,7 @@ class RegistrationForm extends RegForm
 
             [['OIB', 'creditCardNumber'], 'integer'],
             [['firstName', 'lastName'], 'string', 'min' => 2, 'max' => 40],
-            [['phone'], 'string', 'max' => 20],*/
+            [['phone'], 'string', 'max' => 20],
             [['username', 'password', 'email', 'OIB', 'firstName', 'lastName', 'phone', 'creditCardNumber'], 'safe'],
         ];
     }
