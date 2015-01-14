@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\datetimepicker\DateTimePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Reservation */
@@ -12,15 +13,30 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
-
     <?= $form->field($model, 'type')->dropDownList([ 'instant' => 'Instant', 'recurring' => 'Recurring', 'permanent' => 'Permanent', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'parking_id')->textInput() ?>
 
-    <?= $form->field($model, 'start')->textInput() ?>
+    <?= $form->field($model, 'start')->widget(DateTimePicker::className(), [
+        'language' => 'hr',
+        'size' => 'ms',
+        'inline' => true,
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'dd MM yyyy - HH',
+            'todayBtn' => true
+        ]
+    ]);?>
 
-    <?= $form->field($model, 'end')->textInput() ?>
+    <?= $form->field($model, 'end')->widget(DateTimePicker::className(), [
+        'language' => 'hr',
+        'size' => 'ms',
+        'inline' => true,
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'dd MM yyyy - HH',
+            'todayBtn' => true
+        ]
+    ]);?>
 
     <?= $form->field($model, 'duration')->textInput() ?>
 

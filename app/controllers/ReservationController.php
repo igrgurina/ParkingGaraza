@@ -91,6 +91,7 @@ class ReservationController extends Controller
                 return $this->redirect(['view', 'id' => $model->id]);
         } else {
             $model->parking_id = $parking_id;
+            $model->user_id = Yii::$app->user->id;
             return $this->render('create', [
                 'model' => $model,
             ]);

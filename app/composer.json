@@ -21,7 +21,8 @@
         "2amigos/yii2-google-maps-library": "*",
 		"dektrium/yii2-user": "0.9.*@dev",
 		"rmrevin/yii2-fontawesome": "2.5.0",
-        "kolyunya/yii2-map-input-widget": "*"
+        "kolyunya/yii2-map-input-widget": "*",
+        "2amigos/yii2-date-time-picker-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
