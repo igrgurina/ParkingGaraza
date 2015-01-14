@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Parking;
 use Yii;
 use yii\debug\models\search\Db;
 use yii\filters\AccessControl;
@@ -58,7 +59,10 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        //Parking::find()->all();
+        return $this->render('index', [
+            'parkings' => Parking::find()->all(),
+        ]);
     }
 
     public function actionLogin()

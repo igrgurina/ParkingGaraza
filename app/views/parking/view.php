@@ -29,10 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'location_id',
+            'location.lat',
+            'location.lng',
             'type',
             'number_of_parking_spots',
-            'company_id',
+            'company.name',
             'status',
         ],
     ]) ?>

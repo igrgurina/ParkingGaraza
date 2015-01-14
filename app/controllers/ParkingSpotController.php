@@ -14,18 +14,6 @@ use yii\filters\VerbFilter;
  */
 class ParkingSpotController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Finds the ParkingSpot model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

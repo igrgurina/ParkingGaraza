@@ -69,11 +69,11 @@ class User extends BaseUser
     public function attributeLabels()
     {
         return array_merge([
-            'OIB' => 'Oib',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'phone' => 'Phone',
-            'credit_card_number' => 'Credit Card Number',
+            'OIB' => 'OIB',
+            'first_name' => 'Ime',
+            'last_name' => 'Prezime',
+            'phone' => 'Broj telefona',
+            'credit_card_number' => 'Broj kreditne kartice',
         ]);
     }
 
