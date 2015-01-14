@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\Location;
 use Yii;
 use app\models\Parking;
 use app\models\ParkingSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -17,6 +19,18 @@ class ParkingController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['admin', 'create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'matchCallback' => function($rule, $action) {
+                            return Yii::$app->user->identity->isAdmin;
+                        }
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -62,7 +76,18 @@ class ParkingController extends Controller
     {
         $model = new Parking();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if($model->load(Yii::$app->request->post()) && $model->save(false)) {
+            /*
+            [
+                'location_id' => 1, // Location::createLocation(Yii::$app->request->post('coordinates'))->id,
+                'type' => Yii::$app->request->post('type'),
+                'number_of_parking_spots' => Yii::$app->request->post('number_of_parking_spots'),
+                'company_id' => 1, // hardcoded company number because we have only one
+                'status' => Parking::STATUS_OPEN
+            ]);
+            */
+
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

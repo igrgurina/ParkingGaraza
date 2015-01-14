@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\base\ErrorException;
 
 /**
  * This is the model class for table "parking".
@@ -14,6 +15,8 @@ use Yii;
  * @property integer $company_id
  * @property integer $status
  *
+ * @property string $coordinates
+ *
  * @property Company $company
  * @property Location $location
  * @property \yii\db\ActiveQuery $parkingSpots
@@ -23,6 +26,11 @@ use Yii;
  */
 class Parking extends \yii\db\ActiveRecord
 {
+    public $coordinates;
+
+    const STATUS_OPEN = 1;
+    const STATUS_CLOSED = 0;
+
     /**
      * @inheritdoc
      */
@@ -37,7 +45,8 @@ class Parking extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['location_id', 'type', 'number_of_parking_spots', 'company_id'], 'required'],
+            [['type', 'number_of_parking_spots', 'company_id'], 'required'],
+            [['coordinates'], 'safe'],
             [['location_id', 'number_of_parking_spots', 'company_id', 'status'], 'integer'],
             [['type'], 'string']
         ];
@@ -51,8 +60,8 @@ class Parking extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'location_id' => 'Location ID',
-            'type' => 'Type',
-            'number_of_parking_spots' => 'Number Of Parking Spots',
+            'type' => 'Tip',
+            'number_of_parking_spots' => 'Broj parkirnih mjesta',
             'company_id' => 'Company ID',
             'status' => 'Status',
         ];
@@ -116,6 +125,17 @@ class Parking extends \yii\db\ActiveRecord
         return Parking::find()->where('freeParkingSpotsCount > :num', ['num' => 9])->all();
     }
 
-
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            //throw new ErrorException(explode(',',$this->coordinates)[1]);
+            $this->company_id = 1;
+            $this->status = static::STATUS_OPEN;
+            $this->location_id = Location::createLocation($this->coordinates)->id;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

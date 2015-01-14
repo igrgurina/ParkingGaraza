@@ -5,20 +5,27 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\web\HttpException;
+use dektrium\user\models\RegistrationForm as RegForm;
 
 /**
  * LoginForm is the model behind the login form.
  */
-class RegistrationForm extends Model
+class RegistrationForm extends RegForm
 {
-    public $username;
-    public $password;
+    //public $username;
+    //public $password;
+    //public $email;
 
+    /** @var integer */
     public $OIB;
+    /** @var string */
     public $firstName;
+    /** @var string */
     public $lastName;
-    public $email;
+
+    /** @var string */
     public $phone;
+    /** @var integer */
     public $creditCardNumber;
 
     /**
@@ -33,6 +40,7 @@ class RegistrationForm extends Model
             'lastName' => 'Last Name',
             'email' => 'Email',
             'phone' => 'Phone',
+            'password' => 'Password',
             'creditCardNumber' => 'Credit Card Number',
         ];
     }
@@ -43,49 +51,51 @@ class RegistrationForm extends Model
     public function rules()
     {
         return [
-            [['OIB', 'username', 'password', 'firstName', 'lastName', 'email', 'phone', 'creditCardNumber'], 'required'],
-
             ['username', 'filter', 'filter' => 'trim'],
-            ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This username has already been taken.'],
-            [['username'], 'string', 'min' => 2, 'max' => 16],
+            ['username', 'match', 'pattern' => '/^[a-zA-Z]\w+$/'],
+            ['username', 'required'],
+            ['username', 'unique', 'targetClass' => $this->module->modelMap['User'],
+                'message' => \Yii::t('user', 'This username has already been taken')],
+            ['username', 'string', 'min' => 3, 'max' => 20],
 
             ['email', 'filter', 'filter' => 'trim'],
+            ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => $this->module->modelMap['User'],
+                'message' => \Yii::t('user', 'This email address has already been taken')],
 
+            ['password', 'required', 'skipOnEmpty' => $this->module->enableGeneratingPassword],
             ['password', 'string', 'min' => 6],
+
+            [['OIB', 'firstName', 'lastName', 'phone', 'creditCardNumber'], 'required'],
 
             [['OIB', 'creditCardNumber'], 'integer'],
             [['firstName', 'lastName'], 'string', 'min' => 2, 'max' => 40],
             [['phone'], 'string', 'max' => 20],
+            [['username', 'password', 'email', 'OIB', 'firstName', 'lastName', 'phone', 'creditCardNumber'], 'safe'],
         ];
     }
 
     /**
-     * Signs user up.
-     *
-     * @return User|null the saved model or null if saving fails
+     * Registers a new user account.
+     * @return bool
      */
     public function register()
     {
-        if($this->validate())
-        {
-            $user = new User();
-            $user->OIB = $this->OIB;
-            $user->firstName = $this->firstName;
-            $user->lastName = $this->lastName;
-            $user->email = $this->email;
-            $user->phone = $this->phone;
-            $user->creditCardNumber = $this->creditCardNumber;
-
-            $user->username = $this->username;
-            $user->setPassword($this->password);
-            $user->generateAuthKey();
-
-            $user->save();
-            return $user;
+        if (!$this->validate()) {
+            return false;
         }
 
-        return null;
+        $this->user->setAttributes([
+            'email'    => $this->email,
+            'username' => $this->username,
+            'password' => $this->password,
+            'first_name' => $this->firstName,
+            'last_name' => $this->lastName,
+            'phone' => $this->phone,
+            'credit_card_number' => $this->creditCardNumber
+        ]);
+
+        return $this->user->register();
     }
 }

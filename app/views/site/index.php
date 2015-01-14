@@ -1,6 +1,9 @@
 <?php
+
+
 /* @var $this yii\web\View */
 $this->title = 'My Yii Application';
+/* @var $parkings \yii\db\ActiveQuery */
 ?>
 <div class="site-index">
 
@@ -13,6 +16,10 @@ $this->title = 'My Yii Application';
     </div>
 
     <div class="body-content">
+
+        <?= $this->render('_map', [
+            'parkings' => $parkings,
+        ]) ?>
 
         <div class="row">
             <div class="col-lg-4">

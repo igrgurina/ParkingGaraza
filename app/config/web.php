@@ -19,7 +19,7 @@ $config = [
             'defaultRoles' => ['visitor, client, admin'],
         ],
         'user' => [
-            'identityClass' => 'dektrium\user\models\User',
+            'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -42,12 +42,23 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@app/views/user'
+                ]
+            ]
+        ]
     ],
     'params' => $params,
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',
-            'enableConfirmation' => false
+            'enableConfirmation' => false,
+            'modelMap' => [
+                'User' => 'app\models\User',
+                'RegistrationForm' => 'app\models\RegistrationForm'
+            ],
         ]
     ],
 ];

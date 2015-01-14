@@ -14,33 +14,6 @@ use yii\filters\VerbFilter;
  */
 class CompanyController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    //'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->goBack(); // $this->redirect(['view', 'id' => $model->id]);
-        }
-        else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
-
-    }
-
     /**
      * Finds the Company model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

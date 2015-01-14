@@ -45,9 +45,9 @@ class Company extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'location_id' => 'Location ID',
-            'price' => 'Price',
+            'name' => 'Ime',
+            'location_id' => 'Lokacija',
+            'price' => 'Cijena',
         ];
     }
 

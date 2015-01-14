@@ -2,7 +2,9 @@
 
 namespace app\models;
 
+use dosamigos\google\maps\overlays\Marker;
 use Yii;
+use yii\log\Logger;
 
 /**
  * This is the model class for table "location".
@@ -44,7 +46,7 @@ class Location extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Ime',
             'address' => 'Address',
             'lat' => 'Lat',
             'lng' => 'Lng',
@@ -86,11 +88,31 @@ class Location extends \yii\db\ActiveRecord
         return ($miles * 1.609344);
     }
 
+    /**
+     * @param $coordinates string
+     * @return Location
+     */
+    public static function createLocation($coordinates)
+    {
+        Yii::getLogger()->log('Coordinates: ' . $coordinates, Logger::LEVEL_ERROR);
+        $pom = explode(',', $coordinates);
+        $model = new Location();
+        $model->lat = floatval($pom[0]);
+        $model->lng = floatval($pom[1]);
+        $model->address = 'Zagreb';
+        $model->name = 'Parkiralište';
+
+        $model->save(false);
+
+        return $model;
+    }
+
     /*
      *  Returns marker to location
      */
 
-    public function getMarker() {
+    public function getMarker()
+    {
 
     }
 }
