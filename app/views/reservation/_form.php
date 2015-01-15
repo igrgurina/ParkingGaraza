@@ -38,6 +38,16 @@ use dosamigos\datetimepicker\DateTimePicker;
         ]
     ]);?>
 
+    <?= \talma\widgets\FullCalendar::widget([
+        'loading' => 'Učitavanje...', // Text for loading alert. Default 'Loading...'
+        'config' => [
+            // put your options and callbacks here
+            // see http://arshaw.com/fullcalendar/docs/
+            'lang' => 'hr', // optional, if empty get app language
+
+    ],
+]); ?>
+
     <?= $form->field($model, 'duration')->textInput() ?>
 
     <?= $form->field($model, 'period')->textInput() ?>
