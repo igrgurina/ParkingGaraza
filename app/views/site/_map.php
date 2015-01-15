@@ -3,6 +3,7 @@
  * User: Ivan Grgurina
  */
 /** @var $parkings Parking[]  */
+/** @var $currentLocation LatLng */
 use dosamigos\google\maps\LatLng;
 use dosamigos\google\maps\services\DirectionsWayPoint;
 use dosamigos\google\maps\services\TravelMode;
@@ -20,7 +21,7 @@ use yii\helpers\Html;
 
 $Zagreb = new LatLng(['lat' => 45.8167, 'lng' => 15.9833]);
 $map = new Map([
-    'center' => $Zagreb,
+    'center' => $currentLocation == null ? $Zagreb : $currentLocation,
     'zoom' => 12,
 ]);
 
@@ -50,4 +51,3 @@ foreach ($parkings as $parking) {
 
 echo $map->display();
 ?>
-HAHA

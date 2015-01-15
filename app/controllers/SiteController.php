@@ -3,10 +3,12 @@
 namespace app\controllers;
 
 use app\models\Parking;
+use dosamigos\google\maps\LatLng;
 use Yii;
 use yii\debug\models\search\Db;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
+use yii\log\Logger;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -60,8 +62,24 @@ class SiteController extends Controller
     public function actionIndex()
     {
         //Parking::find()->all();
+        //Yii::getLogger()->log(Yii::$app->request->, Logger::LEVEL_ERROR);
+        $request = Yii::$app->request;
+        if($request->get('Location'))
+        {
+            // korisnik je "unio" svoju trenutnu lokaciju
+            $coordinate = new LatLng(['lat' => $request->get('Location.lat'), 'lng' => $request->get('Location.lng')]);
+            // sad imamo koordinate u povoljnom formatu
+            // trebamo pronaći idealan parking i vratit ga na mapu
+            return $this->render('index', [
+                'parkings' => array(Parking::suggestParking($coordinate)),
+                'currentLocation' => null
+            ]);
+        }
+
         return $this->render('index', [
             'parkings' => Parking::find()->all(),
+            'currentLocation' => Yii::$app->request->get('Location') ?
+                new LatLng(['lat' => Yii::$app->request->get('Location.lat'), 'lng' => Yii::$app->request->get('Location.lng')]) : null
         ]);
     }
 

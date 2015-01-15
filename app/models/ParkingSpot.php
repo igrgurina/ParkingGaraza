@@ -15,6 +15,9 @@ use Yii;
  */
 class ParkingSpot extends \yii\db\ActiveRecord
 {
+    const STATUS_FREE = 1;
+    const STATUS_TAKEN = 0;
+
     /**
      * @inheritdoc
      */

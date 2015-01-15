@@ -86,7 +86,7 @@ class ParkingController extends Controller
                 'status' => Parking::STATUS_OPEN
             ]);
             */
-
+            $model->createParkingSpots();
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

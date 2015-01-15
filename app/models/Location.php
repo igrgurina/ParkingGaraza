@@ -47,9 +47,9 @@ class Location extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Ime',
-            'address' => 'Address',
-            'lat' => 'Lat',
-            'lng' => 'Lng',
+            'address' => 'Adresa',
+            'lat' => 'Geografska širina',
+            'lng' => 'Geografska dužina',
         ];
     }
 
@@ -59,28 +59,16 @@ class Location extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return Parking[]
-     */
-    public function suggestParking()
-    {
-        // TODO: nađi najbliža parkirališta
-        $parking = null;
-
-
-    }
-
-    /**Metod returns distance in km
-     * @param $lat1
-     * @param $lon1
-     * @param $lat2
-     * @param $lon2
+     * Method returns distance in km
+     * @param $lat2 float
+     * @param $lon2 float
      * @return float
      */
-    private function distance($lat1, $lon1, $lat2, $lon2)
+    public function distance($lat2, $lon2)
     {
-        $theta = $lon1 - $lon2;
-        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +
-            cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+        $theta = $this->lng - $lon2;
+        $dist = sin(deg2rad($this->lat)) * sin(deg2rad($lat2)) +
+            cos(deg2rad($this->lat)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
         $dist = acos($dist);
         $dist = rad2deg($dist);
         $miles = $dist * 60 * 1.1515;

@@ -13,7 +13,7 @@ use dosamigos\datetimepicker\DateTimePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'type')->dropDownList([ 'instant' => 'Instant', 'recurring' => 'Recurring', 'permanent' => 'Permanent', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'type')->dropDownList([ 'instant' => 'Jednokratna', 'recurring' => 'Ponavljajuća', 'permanent' => 'Trajna', ], ['prompt' => '']) ?>
 
 
     <?= $form->field($model, 'start')->widget(DateTimePicker::className(), [
@@ -38,15 +38,7 @@ use dosamigos\datetimepicker\DateTimePicker;
         ]
     ]);?>
 
-    <?= \talma\widgets\FullCalendar::widget([
-        'loading' => 'Učitavanje...', // Text for loading alert. Default 'Loading...'
-        'config' => [
-            // put your options and callbacks here
-            // see http://arshaw.com/fullcalendar/docs/
-            'lang' => 'hr', // optional, if empty get app language
 
-    ],
-]); ?>
 
     <?= $form->field($model, 'duration')->textInput() ?>
 

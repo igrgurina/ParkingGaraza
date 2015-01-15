@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use dosamigos\google\maps\LatLng;
 use Yii;
 use yii\base\ErrorException;
 
@@ -30,6 +31,8 @@ class Parking extends \yii\db\ActiveRecord
 
     const STATUS_OPEN = 1;
     const STATUS_CLOSED = 0;
+
+    const MAXIMUM_DISTANCE = 50000;
 
     /**
      * @inheritdoc
@@ -104,7 +107,7 @@ class Parking extends \yii\db\ActiveRecord
      */
     public function getFreeParkingSpots()
     {
-        return $this->hasMany(ParkingSpot::className(), ['parking_id' => 'id'])->onCondition(['sensor' => 1]);
+        return $this->hasMany(ParkingSpot::className(), ['parking_id' => 'id'])->onCondition(['sensor' => ParkingSpot::STATUS_FREE]);
     }
 
     /**
@@ -118,12 +121,71 @@ class Parking extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @param $number integer
+     * @return Parking[]
      */
-    public static function findBestSuggestion()
+    public static function findBestSuggestion($number)
     {
-        return Parking::find()->where('freeParkingSpotsCount > :num', ['num' => 9])->all();
+        // TODO: ispraviti
+        $parkings = [];
+        foreach (Parking::find()->all() as $item) {
+            if($item->freeParkingSpotsCount > $number)
+                array_push($parkings, $item);
+        }
+        return $parkings;
+        //return Parking::find()->where('freeParkingSpotsCount > num', ['num' => $number])->all(); //->andWhere(['location.lat' => $coordinate->getLat(), 'location.lng' => $coordinate->getLng()]) ->all();
     }
+
+    /**
+     * @param $coordinate LatLng
+     * @return $parking Parking
+     */
+    public static function suggestParking($coordinate)
+    {
+        $lat = $coordinate->getLat();
+        $lng = $coordinate->getLng();
+
+        $minimumDistance = static::MAXIMUM_DISTANCE;
+        $suggestedParking = null;
+        foreach (Parking::findBestSuggestion(9) as $item) {
+            /* @param $item Parking */
+            $distance = $item->location->distance($lat, $lng);
+            if($distance < $minimumDistance) {
+                $minimumDistance = $distance;
+                $suggestedParking = $item;
+            }
+        }
+        if($minimumDistance != static::MAXIMUM_DISTANCE)
+        {
+            return $suggestedParking;
+        }
+        foreach (Parking::findBestSuggestion(0) as $item) {
+            /* @param $item Parking */
+            $distance = $item->location->distance($lat, $lng);
+            if($distance < $minimumDistance) {
+                $minimumDistance = $distance;
+                $suggestedParking = $item;
+            }
+        }
+
+        if($minimumDistance != static::MAXIMUM_DISTANCE)
+        {
+            return $suggestedParking;
+        }
+
+        return null;
+    }
+
+    public function createParkingSpots()
+    {
+        for ($i = 1; $i <= $this->number_of_parking_spots; $i++){
+            $parkingSpot = new ParkingSpot();
+            $parkingSpot->parking_id = $this->id;
+            $parkingSpot->sensor = ParkingSpot::STATUS_FREE;
+            $parkingSpot->save(false);
+        }
+    }
+
 
     public function beforeSave($insert)
     {
