@@ -35,26 +35,25 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    [
-                        'label' => 'Parking',
+                    ['label' => 'Početna', 'url' => ['/site/index']],
+                    Yii::$app->user->identity->isAdmin ?
+                    ['label' => 'Parkirališta', 'url' => ['/parking/admin']] : '',
+                    Yii::$app->user->identity->isAdmin ?
+                    ['label' => 'Rezervacije',
                         'items' => [
-                            ['label' => 'Admin', 'url' => ['/parking/admin']],
-                            ['label' => 'Create', 'url' => ['/parking/create']],
+                            ['label' => 'Moje rezervacije', 'url' => ['/reservation/index']],
+                            ['label' => 'Rezervacije', 'url' => ['/reservation/admin']],
                         ],
-                    ],
-                    [
-                        'label' => 'Reservation',
-                        'items' => [
-                            ['label' => 'Index', 'url' => ['/reservation/index']],
-                            ['label' => 'Create', 'url' => ['/reservation/create']],
-                        ],
-                    ],
+                    ] : '',
+                    Yii::$app->user->identity->isAdmin ? '' :
+                        ['label' => 'Moje rezervacije', 'url' => ['/reservation/index']],
                     //['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Profile', 'url' => ['/user/settings/profile']],
+                    Yii::$app->user->identity->isAdmin ?
+                        ['label' => 'Korisnici', 'url' => ['/user/admin/index']] : '',
+                    ['label' => 'Profil', 'url' => ['/user/settings/profile']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/user/security/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['label' => 'Prijava', 'url' => ['/user/security/login']] :
+                        ['label' => 'Odjava (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/user/security/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                 ],

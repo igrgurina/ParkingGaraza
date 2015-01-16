@@ -64,7 +64,7 @@ class Parking extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'location_id' => 'Location ID',
-            'type' => 'Tip',
+            'type' => 'Tip parkirališta',
             'number_of_parking_spots' => 'Broj parkirnih mjesta',
             'company_id' => 'Company ID',
             'status' => 'Status',

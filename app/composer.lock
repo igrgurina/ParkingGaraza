@@ -4,51 +4,8 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dbc19608240a41f54884d0c636ec5bd8",
+    "hash": "23e8d1bb672581a741263ec3e968d55b",
     "packages": [
-        {
-            "name": "2amigos/yii2-date-time-picker-widget",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/2amigos/yii2-date-time-picker-widget.git",
-                "reference": "572e2448ba1cd207b339dd5d117e3d1d23f0bbc3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/2amigos/yii2-date-time-picker-widget/zipball/572e2448ba1cd207b339dd5d117e3d1d23f0bbc3",
-                "reference": "572e2448ba1cd207b339dd5d117e3d1d23f0bbc3",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "dosamigos\\datetimepicker\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Antonio Ramirez",
-                    "email": "ramirez.cobos@gmail.com",
-                    "homepage": "http://www.ramirezcobos.com"
-                }
-            ],
-            "description": "Bootstrap DateTimePicker widget for Yii2.",
-            "keywords": [
-                "datepicker",
-                "extension",
-                "widget",
-                "yii"
-            ],
-            "time": "2014-06-24 14:28:07"
-        },
         {
             "name": "2amigos/yii2-google-maps-library",
             "version": "dev-master",
@@ -192,31 +149,6 @@
                 "jquery",
                 "library"
             ]
-        },
-        {
-            "name": "bower-asset/jquery-ui",
-            "version": "1.11.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/components/jqueryui.git",
-                "reference": "396781474d936959061271505f506b78398fe6a2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/components/jqueryui/zipball/396781474d936959061271505f506b78398fe6a2",
-                "reference": "396781474d936959061271505f506b78398fe6a2",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.6"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "jquery-ui.js"
-                ],
-                "bower-asset-ignore": []
-            }
         },
         {
             "name": "bower-asset/jquery.inputmask",
@@ -662,148 +594,6 @@
             "time": "2014-08-17 21:15:53"
         },
         {
-            "name": "kartik-v/yii2-date-range",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-date-range.git",
-                "reference": "b5ea8c1fa3445e15482800fd0a52da18e99b71fe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-date-range/zipball/b5ea8c1fa3445e15482800fd0a52da18e99b71fe",
-                "reference": "b5ea8c1fa3445e15482800fd0a52da18e99b71fe",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-krajee-base": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "kartik\\daterange\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD 3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "An advanced Yii 2 date range picker input for based on bootstrap-daterangepicker plugin.",
-            "homepage": "https://github.com/kartik-v/yii2-date-range",
-            "keywords": [
-                "bootstrap",
-                "bootstrap 3",
-                "date",
-                "date-range",
-                "extension",
-                "range",
-                "time",
-                "widget",
-                "yii2"
-            ],
-            "time": "2015-01-12 12:15:42"
-        },
-        {
-            "name": "kartik-v/yii2-krajee-base",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "4a5f5c2789a6fde71dc8d8b7177351decd02e866"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/4a5f5c2789a6fde71dc8d8b7177351decd02e866",
-                "reference": "4a5f5c2789a6fde71dc8d8b7177351decd02e866",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2-bootstrap": "@dev"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "kartik\\base\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD 3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Base library and foundation components for all Yii2 Krajee extensions.",
-            "homepage": "https://github.com/kartik-v/yii2-krajee-base",
-            "keywords": [
-                "base",
-                "extension",
-                "foundation",
-                "krajee",
-                "widget",
-                "yii2"
-            ],
-            "time": "2015-01-13 19:50:02"
-        },
-        {
-            "name": "kartik-v/yii2-widget-activeform",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-widget-activeform.git",
-                "reference": "7e9c7ed2728f954597ca25c5064ff4ea0025dd14"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-activeform/zipball/7e9c7ed2728f954597ca25c5064ff4ea0025dd14",
-                "reference": "7e9c7ed2728f954597ca25c5064ff4ea0025dd14",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-krajee-base": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "kartik\\form\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD 3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Enhanced Yii2 active-form and active-field with full bootstrap styling support (sub repo split from yii2-widgets).",
-            "homepage": "https://github.com/kartik-v/yii2-widget-activeform",
-            "keywords": [
-                "activefield",
-                "activeform",
-                "extension",
-                "field",
-                "form",
-                "widget",
-                "yii2"
-            ],
-            "time": "2015-01-14 20:04:45"
-        },
-        {
             "name": "kolyunya/yii2-map-input-widget",
             "version": "dev-master",
             "source": {
@@ -946,50 +736,47 @@
             "time": "2014-12-05 14:17:46"
         },
         {
-            "name": "thiagotalma/yii2-fullcalendar",
+            "name": "trntv/yii2-bootstrap-datetimepicker",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thiagotalma/yii2-talma-fullcalendar-widget.git",
-                "reference": "670a2ec86a2299efe415931b9bea69201f33daaa"
+                "url": "https://github.com/trntv/yii2-bootstrap-datetimepicker.git",
+                "reference": "4be5247aa4695b37b8e9a4b815a7e745cb8e3fe1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thiagotalma/yii2-talma-fullcalendar-widget/zipball/670a2ec86a2299efe415931b9bea69201f33daaa",
-                "reference": "670a2ec86a2299efe415931b9bea69201f33daaa",
+                "url": "https://api.github.com/repos/trntv/yii2-bootstrap-datetimepicker/zipball/4be5247aa4695b37b8e9a4b815a7e745cb8e3fe1",
+                "reference": "4be5247aa4695b37b8e9a4b815a7e745cb8e3fe1",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2": "*",
-                "yiisoft/yii2-jui": "*"
+                "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
             "autoload": {
                 "psr-4": {
-                    "talma\\": ""
+                    "trntv\\yii\\datetimepicker\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD 3-Clause"
+                "GPL-3.0+"
             ],
             "authors": [
                 {
-                    "name": "Thiago Talma",
-                    "email": "thiago@thiagomt.com",
-                    "homepage": "http://www.thiagomt.com/"
+                    "name": "Eugine Terentev",
+                    "email": "eugine@terentev.net"
                 }
             ],
-            "description": "Widget for Yii Framework 2.0 to use FullCalendar",
-            "homepage": "https://github.com/thiagotalma/yii2-talma-fullcalendar-widget",
+            "description": "Datetimepicker widget for Yii2 framework",
             "keywords": [
-                "calendar",
+                "DateTimePicker",
+                "bootstrap",
                 "extension",
-                "fullcalendar",
                 "widget",
                 "yii2"
             ],
-            "time": "2015-01-12 18:38:59"
+            "time": "2014-12-05 12:49:12"
         },
         {
             "name": "yiisoft/yii2",
@@ -1086,12 +873,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-authclient.git",
-                "reference": "ed5705058fa09679a93ca070d96e942d9f3c1837"
+                "reference": "60475bb28d3d02e7fe6f64551cc4f583bac57da5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/ed5705058fa09679a93ca070d96e942d9f3c1837",
-                "reference": "ed5705058fa09679a93ca070d96e942d9f3c1837",
+                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/60475bb28d3d02e7fe6f64551cc4f583bac57da5",
+                "reference": "60475bb28d3d02e7fe6f64551cc4f583bac57da5",
                 "shasum": ""
             },
             "require": {
@@ -1126,7 +913,7 @@
                 "oauth",
                 "yii2"
             ],
-            "time": "2015-01-11 03:59:50"
+            "time": "2015-01-15 21:01:28"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1217,52 +1004,6 @@
             "keywords": [
                 "composer",
                 "extension installer",
-                "yii2"
-            ],
-            "time": "2015-01-11 03:59:50"
-        },
-        {
-            "name": "yiisoft/yii2-jui",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yiisoft/yii2-jui.git",
-                "reference": "38284e5cf623961cd71ada0f272174043b38f7a8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/38284e5cf623961cd71ada0f272174043b38f7a8",
-                "reference": "38284e5cf623961cd71ada0f272174043b38f7a8",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery-ui": "1.11.*@stable",
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "yii\\jui\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Qiang Xue",
-                    "email": "qiang.xue@gmail.com"
-                }
-            ],
-            "description": "The Jquery UI extension for the Yii framework",
-            "keywords": [
-                "jQuery UI",
                 "yii2"
             ],
             "time": "2015-01-11 03:59:50"

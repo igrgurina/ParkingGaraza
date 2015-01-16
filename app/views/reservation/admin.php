@@ -15,24 +15,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Reservation', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'user_id',
+            //'id',
+            'user.username',
             'type',
-            'parking_id',
+            'parking.type',
             'start',
-            // 'end',
-            // 'duration',
-            // 'period',
+            'end',
+            'duration',
+            'period',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

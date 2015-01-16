@@ -7,6 +7,7 @@ use app\models\User;
 use Yii;
 use app\models\Reservation;
 use app\models\ReservationSearch;
+use yii\base\ErrorException;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -108,28 +109,43 @@ class ReservationController extends Controller
     {
         $model = new Reservation();
 
-        if ($model->load(Yii::$app->request->post()) && $model->isPossible()) {
-            if ($model->save())
-                return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            $model->parking_id = $parking_id;
-            $model->user_id = Yii::$app->user->id;
-            $model->type = $type;
+        $model->parking_id = $parking_id;
+        $model->user_id = Yii::$app->user->id;
+        $model->type = $type;
 
+        switch($model->type)
+        {
+            case Reservation::TYPE_INSTANT:
+                $model->duration = null;
+                $model->period = null;
+                break;
+            case Reservation::TYPE_PERMANENT:
+                $model->duration = 30;
+                $model->period = null; // period je null, ili 1
+                $model->end = null; // trajna rezervacija nema službeni kraj, samo početak
+                break;
+            default:
+                break;
+        }
+
+        $request = Yii::$app->request;
+        if($request->isPost)
+        {
             switch($model->type)
             {
                 case Reservation::TYPE_INSTANT:
-                    $model->duration = null;
-                    $model->period = null;
                     break;
                 case Reservation::TYPE_PERMANENT:
-                    $model->duration = 30;
-                    $model->period = null;
+                    $model->start = $request->post('Reservation.start');
                     break;
                 default:
                     break;
             }
 
+            if($model->isPossible() && $model->save(false))
+                return $this->redirect(['view', 'id' => $model->id]);
+        //if ($model->load(Yii::$app->request->post()) && $model->isPossible()) {
+        } else {
             return $this->render('create', [
                 'model' => $model,
             ]);

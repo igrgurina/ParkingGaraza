@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii, DateTime, DateInterval;
+use yii\log\Logger;
+
 /**
  * This is the model class for table "reservation".
  *
@@ -42,7 +44,9 @@ class Reservation extends \yii\db\ActiveRecord
             [['user_id', 'type', 'parking_id'], 'required'],
             [['user_id', 'parking_id'], 'integer'],
             [['type'], 'string'],
-            [['start', 'end', 'duration', 'period'], 'safe']
+            [['start', 'end', 'duration', 'period'], 'safe'],
+            // TODO: usporedba ne radi baš najbolje ukoliko se rezervira isti dan
+            ['start', 'compare', 'compareValue' => Reservation::sixHoursAheadFromNow(), 'operator' => '>='],
         ];
     }
 
@@ -53,14 +57,25 @@ class Reservation extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User ID',
-            'type' => 'Type',
-            'parking_id' => 'Parking ID',
-            'start' => 'Start',
-            'end' => 'End',
-            'duration' => 'Duration',
+            'user_id' => 'ID Korisnika',
+            'type' => 'Tip rezervacije',
+            'parking_id' => 'ID Parkirališta',
+            'start' => 'Vrijeme početka',
+            'end' => 'Vrijeme završetka',
+            'duration' => 'Trajanje',
             'period' => 'Period',
         ];
+    }
+
+    /**
+     * @return string
+     */
+    public static function sixHoursAheadFromNow()
+    {
+        // 14.01.2015, 00:00
+        $var = (new DateTime())->add(new DateInterval('PT6H0S'))->format('d.m.Y, H:i');
+        Yii::getLogger()->log('Vrijeme koje se provjerava je: ' . $var, Logger::LEVEL_INFO);
+        return $var;
     }
 
     public function cancel()

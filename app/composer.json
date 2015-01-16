@@ -22,10 +22,7 @@
 		"dektrium/yii2-user": "0.9.*@dev",
 		"rmrevin/yii2-fontawesome": "2.5.0",
         "kolyunya/yii2-map-input-widget": "*",
-        "2amigos/yii2-date-time-picker-widget": "*",
-        "thiagotalma/yii2-fullcalendar": "*",
-        "kartik-v/yii2-date-range": "*",
-        "kartik-v/yii2-widget-activeform": "*"
+        "trntv/yii2-bootstrap-datetimepicker": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

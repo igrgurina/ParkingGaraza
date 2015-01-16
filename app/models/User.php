@@ -32,6 +32,8 @@ class User extends BaseUser
     public function getIsAdmin()
     {
         Yii::getLogger()->log($this->role . ' is the role of the user',Logger::LEVEL_INFO);
+        if(Yii::$app->user->isGuest)
+            return false;
         return $this->role == User::ROLE_ADMIN;
     }
 
@@ -86,6 +88,7 @@ class User extends BaseUser
     {
         return array_merge([
             'OIB' => 'OIB',
+            'username' => 'Korisničko ime',
             'first_name' => 'Ime',
             'last_name' => 'Prezime',
             'phone' => 'Broj telefona',
