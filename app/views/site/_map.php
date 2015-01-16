@@ -26,6 +26,7 @@ $map = new Map([
 ]);
 
 foreach ($parkings as $parking) {
+
     $coordinate = new LatLng([
         'lat' => $parking->location->lat,
         'lng' => $parking->location->lng,
@@ -36,11 +37,11 @@ foreach ($parkings as $parking) {
         'title' => $parking->location->address,
     ]);
 
-    $linkToReservation = Html::a('Rezerviraj mjesto', ['reservation/create', 'parking_id' => $parking->id]);
+    $linkToReservation = Html::a('Rezerviraj mjesto', ['reservation/type', 'parking_id' => $parking->id]);
 
     $marker->attachInfoWindow(
         new InfoWindow([
-            'content' => '<div style="height: 100px;width:200px;"><h4 class="text-center">Parking: ' . $parking->freeParkingSpotsCount . '/' . $parking->number_of_parking_spots . '</h4>
+            'content' => '<div style="height: 100px;width:200px;"><h4 class="text-center">Slobodno mjesta: ' . $parking->freeParkingSpotsCount . '/' . $parking->number_of_parking_spots . '</h4>
             <p>' . $parking->location->address . '</p><p>' . $linkToReservation . '</p></div>'
         ])
     );

@@ -51,7 +51,8 @@ class Parking extends \yii\db\ActiveRecord
             [['type', 'number_of_parking_spots', 'company_id'], 'required'],
             [['coordinates'], 'safe'],
             [['location_id', 'number_of_parking_spots', 'company_id', 'status'], 'integer'],
-            [['type'], 'string']
+            [['type'], 'string'],
+            ['number_of_parking_spots', 'compare', 'compareValue' => 10, 'operator' => '>='],
         ];
     }
 
@@ -103,11 +104,20 @@ class Parking extends \yii\db\ActiveRecord
     }
 
     /**
+     * @inheritdoc
+     * @return ParkingQuery
+     */
+    public static function find()
+    {
+        return new ParkingQuery(get_called_class());
+    }
+
+    /**
      * @return \yii\db\ActiveQuery
      */
     public function getFreeParkingSpots()
     {
-        return $this->hasMany(ParkingSpot::className(), ['parking_id' => 'id'])->onCondition(['sensor' => ParkingSpot::STATUS_FREE]);
+        return $this->hasMany(ParkingSpot::className(), ['parking_id' => 'id'])->free();
     }
 
     /**
@@ -128,7 +138,7 @@ class Parking extends \yii\db\ActiveRecord
     {
         // TODO: ispraviti
         $parkings = [];
-        foreach (Parking::find()->all() as $item) {
+        foreach (Parking::find()->active()->all() as $item) {
             if($item->freeParkingSpotsCount > $number)
                 array_push($parkings, $item);
         }
@@ -198,6 +208,11 @@ class Parking extends \yii\db\ActiveRecord
         } else {
             return false;
         }
+    }
+
+    public function delete()
+    {
+        // TODO: promijeniti na STATUS_CLOSED
     }
 
 }

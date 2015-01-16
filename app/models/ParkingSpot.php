@@ -56,4 +56,13 @@ class ParkingSpot extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Parking::className(), ['id' => 'parking_id']);
     }
+
+    /**
+     * @inheritdoc
+     * @return ParkingSpotQuery
+     */
+    public static function find()
+    {
+        return new ParkingSpotQuery(get_called_class());
+    }
 }

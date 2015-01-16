@@ -56,7 +56,7 @@ class ParkingSearch extends Parking
             'location_id' => $this->location_id,
             'number_of_parking_spots' => $this->number_of_parking_spots,
             'company_id' => $this->company_id,
-            'status' => $this->status,
+            'status' => Parking::STATUS_OPEN,
         ]);
 
         $query->andFilterWhere(['like', 'type', $this->type]);

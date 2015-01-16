@@ -21,6 +21,10 @@ use Yii, DateTime, DateInterval;
  */
 class Reservation extends \yii\db\ActiveRecord
 {
+    const TYPE_INSTANT = 'instant';
+    const TYPE_PERIODIC = 'recurring';
+    const TYPE_PERMANENT = 'permanent';
+
     /**
      * @inheritdoc
      */

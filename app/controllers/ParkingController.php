@@ -74,6 +74,8 @@ class ParkingController extends Controller
      */
     public function actionCreate()
     {
+
+        // TODO: provjera da se lokacija ne poklapa sa postojećom lokacijom
         $model = new Parking();
 
         if($model->load(Yii::$app->request->post()) && $model->save(false)) {
@@ -104,6 +106,8 @@ class ParkingController extends Controller
      */
     public function actionUpdate($id)
     {
+        // TODO: učitaj trenutnu lokaciju parkinga
+        // TODO: ne kreiraj novu lokaciju prilikom updatea
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -123,8 +127,18 @@ class ParkingController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        // TODO: provjeri da li ima aktivnih rezervacija
+        // TODO: promjeni status parkirališta, a ne ga izbrisati kao što sada radiš
+        // TODO: izbriši lokaciju parkinga
+        $model = $this->findModel($id);
 
+        $model->location->delete();
+        foreach ($model->parkingSpots as $pS) {
+            $pS->delete();
+        }
+
+
+        $model->delete();
         return $this->redirect(['admin']);
     }
 

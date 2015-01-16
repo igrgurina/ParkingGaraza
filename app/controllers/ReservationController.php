@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\ReservationTypeForm;
 use app\models\User;
 use Yii;
 use app\models\Reservation;
@@ -76,13 +77,34 @@ class ReservationController extends Controller
         ]);
     }
 
+    public function actionType($parking_id)
+    {
+        // novi type choicer
+        $model = new ReservationTypeForm();
+        // pridruži dobiveni parking_id trenutnoj formi kako bi prenio na sljedeći korak (create)
+        $model->parking_id = $parking_id;
+
+        if(Yii::$app->request->isPost)
+        {
+            //print_r($_POST['ReservationTypeForm']['type']); die;// post('ReservationTypeForm'));die;
+            $model->type = $_POST['ReservationTypeForm']['type'];
+
+            return $this->redirect(['create', 'type' => $model->type, 'parking_id' => $model->parking_id]);
+        }
+
+        return $this->render('type', [
+            'model' => $model
+        ]);
+    }
+
     /**
      * [UC10] Creates a new Reservation model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @param integer $parking_id ID of the parking where the reservation takes place
+     * @param string $type type of the reservation delivered by ReservationTypeForm view
      * @return mixed
      */
-    public function actionCreate($parking_id)
+    public function actionCreate($parking_id, $type)
     {
         $model = new Reservation();
 
@@ -92,6 +114,22 @@ class ReservationController extends Controller
         } else {
             $model->parking_id = $parking_id;
             $model->user_id = Yii::$app->user->id;
+            $model->type = $type;
+
+            switch($model->type)
+            {
+                case Reservation::TYPE_INSTANT:
+                    $model->duration = null;
+                    $model->period = null;
+                    break;
+                case Reservation::TYPE_PERMANENT:
+                    $model->duration = 30;
+                    $model->period = null;
+                    break;
+                default:
+                    break;
+            }
+
             return $this->render('create', [
                 'model' => $model,
             ]);

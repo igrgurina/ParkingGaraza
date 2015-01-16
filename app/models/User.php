@@ -51,16 +51,32 @@ class User extends BaseUser
      */
     public function rules()
     {
-        return array_merge(
-            [
-                [['OIB', 'first_name', 'last_name', 'password', 'phone', 'credit_card_number'], 'required'],
-                [['OIB', 'credit_card_number'], 'integer'],
-                [['last_login'], 'safe'],
-                [['first_name', 'last_name'], 'string', 'max' => 40],
-                [['phone'], 'string', 'max' => 20]
-            ],
-            parent::rules()
-        );
+        return [
+            [['OIB', 'first_name', 'last_name', 'password', 'phone', 'credit_card_number'], 'required'],
+            [['OIB', 'credit_card_number'], 'integer'],
+            [['last_login'], 'safe'],
+            [['first_name', 'last_name'], 'string', 'max' => 40],
+            [['phone'], 'string', 'max' => 20],
+
+            // username rules
+            ['username', 'required', 'on' => ['register', 'connect', 'create', 'update']],
+            ['username', 'match', 'pattern' => '/^[a-zA-Z]\w+$/'],
+            ['username', 'string', 'min' => 3, 'max' => 25],
+            ['username', 'unique'],
+            ['username', 'trim'],
+
+            // email rules
+            ['email', 'required', 'on' => ['register', 'connect', 'create', 'update']],
+            ['email', 'email'],
+            ['email', 'string', 'max' => 255],
+            ['email', 'unique'],
+            ['email', 'trim'],
+
+            // password rules
+            ['password', 'required', 'on' => ['register']],
+            ['password', 'string', 'min' => 6, 'on' => ['register', 'create']],
+
+            ];
     }
 
     /**

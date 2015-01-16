@@ -9,11 +9,23 @@ use dosamigos\datetimepicker\DateTimePicker;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="reservation-form">
+<div class="reservation-form col-md-3">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'type')->dropDownList([ 'instant' => 'Jednokratna', 'recurring' => 'Ponavljajuća', 'permanent' => 'Trajna', ], ['prompt' => '']) ?>
+    <?php if ($model->type == \app\models\Reservation::TYPE_INSTANT): ?>
+        <?= $this->render('_instant', [
+            'model' => $model,
+        ]) ?>
+    <?php elseif($model->type == \app\models\Reservation::TYPE_PERIODIC): ?>
+        <?= $this->render('_periodic', [
+            'model' => $model,
+        ]) ?>
+    <?php else: ?>
+        <?= $this->render('_periodic', [
+            'model' => $model,
+        ]) ?>
+    <?php endif; ?>
 
 
     <?= $form->field($model, 'start')->widget(DateTimePicker::className(), [
@@ -22,7 +34,7 @@ use dosamigos\datetimepicker\DateTimePicker;
         'inline' => true,
         'clientOptions' => [
             'autoclose' => true,
-            'format' => 'dd MM yyyy - HH',
+            'format' => 'dd MM yyyy - HH:00',
             'todayBtn' => true
         ]
     ]);?>
@@ -38,11 +50,9 @@ use dosamigos\datetimepicker\DateTimePicker;
         ]
     ]);?>
 
+    <?= $form->field($model, 'duration')->textInput()->label('Koliko dana?') ?>
 
-
-    <?= $form->field($model, 'duration')->textInput() ?>
-
-    <?= $form->field($model, 'period')->textInput() ?>
+    <?= $form->field($model, 'period')->textInput()->label('Koliko često?') ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

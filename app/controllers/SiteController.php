@@ -61,6 +61,9 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        // TODO: click on the map to enter your current location
+        // TODO: alert user if there is no adequate parking for him
+
         //Parking::find()->all();
         //Yii::getLogger()->log(Yii::$app->request->, Logger::LEVEL_ERROR);
         $request = Yii::$app->request;
@@ -69,7 +72,7 @@ class SiteController extends Controller
             // korisnik je "unio" svoju trenutnu lokaciju
             $coordinate = new LatLng(['lat' => $request->get('Location.lat'), 'lng' => $request->get('Location.lng')]);
             // sad imamo koordinate u povoljnom formatu
-            // trebamo pronaći idealan parking i vratit ga na mapu
+            // trebamo pronaći idealan parking i vratiti ga na mapu
             return $this->render('index', [
                 'parkings' => array(Parking::suggestParking($coordinate)),
                 'currentLocation' => null
@@ -77,7 +80,7 @@ class SiteController extends Controller
         }
 
         return $this->render('index', [
-            'parkings' => Parking::find()->all(),
+            'parkings' => Parking::find()->active()->all(),
             'currentLocation' => Yii::$app->request->get('Location') ?
                 new LatLng(['lat' => Yii::$app->request->get('Location.lat'), 'lng' => Yii::$app->request->get('Location.lng')]) : null
         ]);

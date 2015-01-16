@@ -4,6 +4,8 @@ use dosamigos\google\maps\LatLng;
 $this->title = 'My Yii Application';
 /* @var $parkings \yii\db\ActiveQuery */
 /* @var $currentLocation LatLng */
+
+// TODO: dodaj cjenik iz dizajna
 ?>
 <div class="site-index">
 

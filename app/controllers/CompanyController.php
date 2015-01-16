@@ -15,6 +15,25 @@ use yii\filters\VerbFilter;
 class CompanyController extends Controller
 {
     /**
+     * Updates an existing Company model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     */
+    public function actionUpdate($id)
+    {
+         // Admin can be able to change the name of the company
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+     }
+
+        /**
      * Finds the Company model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id

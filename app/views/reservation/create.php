@@ -14,6 +14,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <?php if ($model->type == \app\models\Reservation::TYPE_INSTANT): ?>
+        <?= $this->render('_form', [
+            'model' => $model,
+        ]) ?>
+    <?php elseif($model->type == \app\models\Reservation::TYPE_PERIODIC): ?>
+        <?= $this->render('_form', [
+            'model' => $model,
+        ]) ?>
+    <?php else: ?>
+        <?= $this->render('_form', [
+            'model' => $model,
+        ]) ?>
+    <?php endif; ?>
+
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
