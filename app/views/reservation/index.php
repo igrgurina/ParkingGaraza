@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-            'user.username',
+            //'user.username', nije potrebno korisničko ime s obzirom da je ovo prikaz vlastitih rezervacija
             'type',
             'parking.type',
             'start',

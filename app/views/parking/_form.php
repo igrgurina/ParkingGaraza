@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
         )
     ?>
 
-    <?= $form->field($model, 'type')->dropDownList([ 'garage' => 'Garage', 'outdoor' => 'Outdoor', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'type')->dropDownList([ 'garage' => 'Garaža', 'outdoor' => 'Otvoreno parkiralište', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'number_of_parking_spots')->textInput() ?>
 
