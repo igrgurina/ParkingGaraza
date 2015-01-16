@@ -116,25 +116,26 @@ class ReservationController extends Controller
         $request = Yii::$app->request;
         if($request->isPost)
         {
+            $request->post('Reservation');
             switch($model->type)
             {
                 case Reservation::TYPE_INSTANT:
                     $model->duration = 1;
                     $model->period = null;
-                    $model->start = $request->post('Reservation.start');
-                    $model->end = $request->post('Reservation.end');
+                    $model->start = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['start'])); // ,  $_POST['Reservation']['start']); // 16.01.2015, 00:00
+                    $model->end = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['end'])); //['end']); // j.n.Y, H:i
                     break;
                 case Reservation::TYPE_PERMANENT:
                     $model->duration = 30;
                     $model->period = 1; // period je null, ili 1
                     $model->end = null; // trajna rezervacija nema službeni kraj, samo početak
-                    $model->start = $request->post('Reservation.start');
+                    $model->start = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['start']));
                     break;
                 default:
                     $model->duration = 30;
                     $model->period = $request->post('Reservation.period');
-                    $model->start = $request->post('Reservation.start');
-                    $model->end = $_POST['Reservation']['end'];
+                    $model->start = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['start']));
+                    $model->end = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['end']));
                     break;
             }
 

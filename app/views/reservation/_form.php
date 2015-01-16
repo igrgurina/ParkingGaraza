@@ -19,7 +19,7 @@ use trntv\yii\datetimepicker\DatetimepickerWidget;
                 'language' => 'hr',
                 'useMinutes' => false,              // disables the minutes picker
                 'useSeconds' => false,              // disables the seconds picker
-                'defaultDate' => (new DateTime())->add(new DateInterval('PT6H0S')),
+                'defaultDate' => ((new DateTime())->add(new DateInterval('PT6H0S'))),
                 //'useCurrent' => true,
                 'sideBySide' => true,               //show the date and time picker side by side
             ],
@@ -30,7 +30,7 @@ use trntv\yii\datetimepicker\DatetimepickerWidget;
                 'language' => 'hr',
                 'useMinutes' => false,              // disables the minutes picker
                 'useSeconds' => false,              // disables the seconds picker
-                'defaultDate' => (new DateTime())->add(new DateInterval('PT7H0S')),
+                'defaultDate' => ((new DateTime())->add(new DateInterval('PT7H0S'))),
                 //'useCurrent' => true,
                 'sideBySide' => true,               //show the date and time picker side by side
             ],
