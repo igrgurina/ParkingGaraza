@@ -7,10 +7,6 @@ use yii\console\Controller;
 use yii\helpers\Console;
 
 /**
- * This command echoes the first argument that you have entered.
- *
- * This command is provided as an example for you to learn how to create console commands.
- *
  * @author Ivan Grgurina <ivan.grgurina@fer.hr>
  */
 class CronController extends Controller
