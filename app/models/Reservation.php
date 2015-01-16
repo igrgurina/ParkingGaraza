@@ -108,6 +108,11 @@ class Reservation extends \yii\db\ActiveRecord
 
     public function isPossible()
     {
+        if(!$this->hasEnoughMoney())
+        {
+            return false;
+        }
+
         $start = new DateTime($this->start);
         $end = new DateTime($this->end);
 
@@ -165,6 +170,11 @@ class Reservation extends \yii\db\ActiveRecord
             }
         }
         return $count;
+    }
+
+    private function hasEnoughMoney()
+    {
+        return rand(0,1);
     }
 }
 
