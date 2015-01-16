@@ -23,10 +23,10 @@ class ReservationController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index', 'admin', 'create', 'delete'],
+                'only' => ['index', 'admin', 'create', 'delete', 'type'],
                 'rules' => [
                     [
-                        'actions' => ['index', 'create', 'delete'],
+                        'actions' => ['index', 'create', 'delete', 'type'],
                         'allow' => true,
                         'roles' => ['@']
                     ],
@@ -107,6 +107,7 @@ class ReservationController extends Controller
      */
     public function actionCreate($parking_id, $type)
     {
+        // TODO: do this
         $model = new Reservation();
 
         $model->parking_id = $parking_id;

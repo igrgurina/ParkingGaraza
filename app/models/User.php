@@ -25,6 +25,7 @@ use yii\log\Logger;
 class User extends BaseUser
 {
     const ROLE_ADMIN = 1;
+    const ROLE_USER = 0;
 
     /**
      * @return bool Whether the user is an admin or not.
@@ -35,6 +36,23 @@ class User extends BaseUser
         if(Yii::$app->user->isGuest)
             return false;
         return $this->role == User::ROLE_ADMIN;
+    }
+
+    public function makeAdmin()
+    {
+        $this->role = User::ROLE_ADMIN;
+        $this->save(false);
+    }
+
+    public function removeAdmin()
+    {
+        $this->role = User::ROLE_USER;
+        $this->save(false);
+    }
+
+    public function deactivate()
+    {
+        $this->block();
     }
 
     public function scenarios()

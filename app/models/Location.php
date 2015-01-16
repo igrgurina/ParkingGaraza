@@ -60,20 +60,23 @@ class Location extends \yii\db\ActiveRecord
 
     /**
      * Method returns distance in km
-     * @param $lat2 float
-     * @param $lon2 float
+     * @param $lat float
+     * @param $lon float
      * @return float
      */
-    public function distance($lat2, $lon2)
+    public function distance($lat, $lon)
     {
-        $theta = $this->lng - $lon2;
-        $dist = sin(deg2rad($this->lat)) * sin(deg2rad($lat2)) +
-            cos(deg2rad($this->lat)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
-        $dist = acos($dist);
-        $dist = rad2deg($dist);
-        $miles = $dist * 60 * 1.1515;
+        // haversine formula
+        $latFrom = deg2rad($this->lat);
+        $lonFrom = deg2rad($this->lng);
+        $latTo = deg2rad($lat);
+        $lonTo = deg2rad($lon);
 
-        return ($miles * 1.609344);
+        $latDelta = $latTo - $latFrom;
+        $lonDelta = $lonTo - $lonFrom;
+
+        $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) + cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+        return ($angle * 6371);
     }
 
     /**

@@ -59,6 +59,9 @@ $config = [
                 'User' => 'app\models\User',
                 'RegistrationForm' => 'app\models\RegistrationForm'
             ],
+            'controllerMap' => [
+                'admin' => 'app\controllers\user\AdminController'
+            ],
         ]
     ],
 ];
