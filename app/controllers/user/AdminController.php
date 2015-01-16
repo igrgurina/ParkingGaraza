@@ -42,7 +42,7 @@ class AdminController extends BaseAdminController
                         'allow' => true,
                         'roles' => ['@'],
                         'matchCallback' => function ($rule, $action) {
-                            return \Yii::$app->user->identity->getIsAdmin();
+                            return \Yii::$app->user->identity->getIsAdmin() || !\Yii::$app->user->identity->getIsBlocked();
                         }
                     ],
                 ]
@@ -82,14 +82,14 @@ class AdminController extends BaseAdminController
      */
     public function actionBlock($id, $back = 'index')
     {
+        $user = User::findOne($id);
         if ($id == \Yii::$app->user->getId()) {
-            \Yii::$app->getSession()->setFlash('danger', \Yii::t('user', 'Ne možeš blokirati vlastiti korisnički račun.'));
+            \Yii::$app->getSession()->setFlash('danger', \Yii::t('user', 'Ne možeš blokirati ni odblokirati vlastiti korisnički račun.'));
         }
-        else if(User::findOne($id)->isAdmin) {
+        else if($user->isAdmin) {
             \Yii::$app->getSession()->setFlash('danger', \Yii::t('user', 'Ne možeš blokirati administratora. Pokušaj ponovno nakon što mu smanjiš privilegije.'));
         }
         else {
-            $user = $this->findModel($id);
             if ($user->getIsBlocked()) {
                 $user->unblock();
                 \Yii::$app->getSession()->setFlash('success', \Yii::t('user', 'Korisnik je odblokiran.'));

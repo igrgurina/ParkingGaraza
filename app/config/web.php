@@ -60,7 +60,8 @@ $config = [
                 'RegistrationForm' => 'app\models\RegistrationForm'
             ],
             'controllerMap' => [
-                'admin' => 'app\controllers\user\AdminController'
+                'admin' => 'app\controllers\user\AdminController',
+                'settings' => 'app\controllers\user\SettingsController',
             ],
         ]
     ],

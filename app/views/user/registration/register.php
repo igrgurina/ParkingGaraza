@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
  * @var dektrium\user\models\User $user
  */
 
-$this->title = Yii::t('user', 'Sign up');
+$this->title = Yii::t('user', 'Registracija');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
@@ -45,13 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'creditCardNumber') ?>
 
-                <?= Html::submitButton(Yii::t('user', 'Sign up'), ['class' => 'btn btn-success btn-block']) ?>
+                <?= Html::submitButton(Yii::t('user', 'Registriraj se'), ['class' => 'btn btn-success btn-block']) ?>
 
                 <?php ActiveForm::end(); ?>
             </div>
         </div>
         <p class="text-center">
-            <?= Html::a(Yii::t('user', 'Already registered? Sign in!'), ['/user/security/login']) ?>
+            <?= Html::a(Yii::t('user', 'Već si se registrirao? Prijavi se!'), ['/user/security/login']) ?>
         </p>
     </div>
 </div>

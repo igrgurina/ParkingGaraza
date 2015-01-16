@@ -44,13 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a(Yii::t('user', 'Odblokiraj'), ['block', 'id' => $model->id], [
                         'class' => 'btn btn-xs btn-success btn-block',
                         'data-method' => 'post',
-                        'data-confirm' => Yii::t('user', 'Are you sure to unblock this user?')
+                        'data-confirm' => Yii::t('user', 'Da li ste sigurni da želite odblokirati ovog korisnika?')
                     ]);
                 } else {
                     return Html::a(Yii::t('user', 'Blokiraj'), ['block', 'id' => $model->id], [
                         'class' => 'btn btn-xs btn-danger btn-block',
                         'data-method' => 'post',
-                        'data-confirm' => Yii::t('user', 'Are you sure to block this user?')
+                        'data-confirm' => Yii::t('user', 'Da li ste sigurni da želite blokirat ovog korisnika?')
                     ]);
                 }
             },
@@ -60,14 +60,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'header' => Yii::t('user', 'Admin'),
             'value' => function ($model) {
                 if ($model->isAdmin) {
-                    return Html::a('<span class="glyphicon glyphicon-plus"></span>', ['admin', 'id' => $model->id], [
-                        'class' => 'btn btn-xs btn-success btn-block',
+                    return Html::a('<span class="glyphicon glyphicon-minus"></span>', ['admin', 'id' => $model->id], [
+                        'class' => 'btn btn-xs btn-primary btn-block',
                         'data-method' => 'post',
                         'data-confirm' => Yii::t('user', 'Da li sigurno želite smanjiti ovlasti korisniku?')
                     ]);
                 } else {
-                    return Html::a('<span class="glyphicon glyphicon-minus"></span>', ['admin', 'id' => $model->id], [
-                        'class' => 'btn btn-xs btn-primary btn-block',
+                    return Html::a('<span class="glyphicon glyphicon-plus"></span>', ['admin', 'id' => $model->id], [
+                        'class' => 'btn btn-xs btn-success btn-block',
                         'data-method' => 'post',
                         'data-confirm' => Yii::t('user', 'Da li sigurno želite proglasiti korisnika administratorom?')
                     ]);

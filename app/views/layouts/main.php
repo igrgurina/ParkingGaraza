@@ -36,26 +36,27 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Početna', 'url' => ['/site/index']],
-                    Yii::$app->user->identity->isAdmin ?
-                    ['label' => 'Parkirališta', 'url' => ['/parking/admin']] : '',
-                    Yii::$app->user->identity->isAdmin ?
+                    !Yii::$app->user->isGuest ? Yii::$app->user->identity->isAdmin ?
+                    ['label' => 'Parkirališta', 'url' => ['/parking/admin']] : '' : '',
+                    !Yii::$app->user->isGuest ? Yii::$app->user->identity->isAdmin ?
                     ['label' => 'Rezervacije',
                         'items' => [
                             ['label' => 'Moje rezervacije', 'url' => ['/reservation/index']],
                             ['label' => 'Rezervacije', 'url' => ['/reservation/admin']],
                         ],
-                    ] : '',
-                    Yii::$app->user->identity->isAdmin ? '' :
-                        ['label' => 'Moje rezervacije', 'url' => ['/reservation/index']],
+                    ] : '' : '',
+                    !Yii::$app->user->isGuest ? Yii::$app->user->identity->isAdmin ? '' :
+                        ['label' => 'Moje rezervacije', 'url' => ['/reservation/index']] : '',
                     //['label' => 'About', 'url' => ['/site/about']],
-                    Yii::$app->user->identity->isAdmin ?
-                        ['label' => 'Korisnici', 'url' => ['/user/admin/index']] : '',
-                    ['label' => 'Profil', 'url' => ['/user/settings/profile']],
+                    !Yii::$app->user->isGuest ? Yii::$app->user->identity->isAdmin ?
+                        ['label' => 'Korisnici', 'url' => ['/user/admin/index']] : '' : '',
+                    !Yii::$app->user->isGuest ? ['label' => 'Profil', 'url' => ['/user/settings/profile']] : '',
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Prijava', 'url' => ['/user/security/login']] :
-                        ['label' => 'Odjava (' . Yii::$app->user->identity->username . ')',
+                        ['label' => 'Prijava', 'url' => ['/user/security/login']] : '',
+                    Yii::$app->user->isGuest ?  ['label' => 'Registracija', 'url' => ['/user/registration/register']] : '',
+                    !Yii::$app->user->isGuest ? ['label' => 'Odjava (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/user/security/logout'],
-                            'linkOptions' => ['data-method' => 'post']],
+                            'linkOptions' => ['data-method' => 'post']] : '',
                 ],
             ]);
             NavBar::end();

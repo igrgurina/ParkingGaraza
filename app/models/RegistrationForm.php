@@ -35,13 +35,15 @@ class RegistrationForm extends RegForm
     {
         return [
             'OIB' => 'OIB',
-            'username' => 'Username',
-            'firstName' => 'First Name',
-            'lastName' => 'Last Name',
+            'firstName' => 'Ime',
+            'lastName' => 'Prezime',
             'email' => 'Email',
-            'phone' => 'Phone',
-            'password' => 'Password',
-            'creditCardNumber' => 'Credit Card Number',
+            'password' => 'Lozinka',
+            'username' => 'Korisničko ime',
+            'first_name' => 'Ime',
+            'last_name' => 'Prezime',
+            'phone' => 'Broj telefona',
+            'creditCardNumber' => 'Broj kreditne kartice',
         ];
     }
 
