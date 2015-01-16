@@ -1,5 +1,6 @@
 <?php
 use dosamigos\google\maps\LatLng;
+use kartik\daterange\DateRangePicker;
 /* @var $this yii\web\View */
 $this->title = 'Parking Zagreb';
 /* @var $parkings \yii\db\ActiveQuery */
@@ -8,10 +9,6 @@ $this->title = 'Parking Zagreb';
 // TODO: dodaj cjenik iz dizajna
 ?>
 <div class="site-index">
-
-    <?= $this->render('_search', [
-        'model' => new \app\models\Location(),
-    ]) ?>
    <div class="body-content">
        <div class="row">
            <div class="col-xs-12">
@@ -24,7 +21,9 @@ $this->title = 'Parking Zagreb';
                <?php endforeach ?>
            </div>
        </div>
-
+       <?= $this->render('_search', [
+           'model' => new \app\models\Location(),
+       ]) ?>
         <div class="row">
             <div class="col-md-12">
                 <?= $this->render('_map', [
@@ -33,6 +32,5 @@ $this->title = 'Parking Zagreb';
                 ]) ?>
             </div>
         </div>
-
     </div>
 </div>

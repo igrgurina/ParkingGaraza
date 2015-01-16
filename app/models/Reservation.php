@@ -20,12 +20,16 @@ use yii\log\Logger;
  *
  * @property User $user
  * @property Parking $parking
+ *
+ * @property string $termin
  */
 class Reservation extends \yii\db\ActiveRecord
 {
     const TYPE_INSTANT = 'instant';
     const TYPE_PERIODIC = 'recurring';
     const TYPE_PERMANENT = 'permanent';
+
+    public $termin;
 
     /**
      * @inheritdoc
@@ -65,6 +69,15 @@ class Reservation extends \yii\db\ActiveRecord
             'duration' => 'Trajanje',
             'period' => 'Period',
         ];
+    }
+
+    /**
+     * @inheritdoc
+     * @return ReservationQuery
+     */
+    public static function find()
+    {
+        return new ReservationQuery(get_called_class());
     }
 
     /**
@@ -116,7 +129,7 @@ class Reservation extends \yii\db\ActiveRecord
         $start = new DateTime($this->start);
         $end = new DateTime($this->end);
 
-        if ($this->type == 'instant') {
+        if ($this->type == Reservation::TYPE_INSTANT) {
 
             $count = $this->activeReservationsAt($start, $end);
 

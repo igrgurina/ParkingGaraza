@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\ReservationTypeForm;
 use app\models\User;
+use kartik\daterange\DateRangePicker;
 use Yii;
 use app\models\Reservation;
 use app\models\ReservationSearch;
@@ -116,18 +117,19 @@ class ReservationController extends Controller
         $request = Yii::$app->request;
         if($request->isPost)
         {
-            $request->post('Reservation');
             switch($model->type)
             {
                 case Reservation::TYPE_INSTANT:
+                    $start = explode('-', $_POST['Reservation']['termin']);
+                    // TODO: start i end moraju biti u istom danu
                     $model->duration = 1;
                     $model->period = null;
-                    $model->start = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['start'])); // ,  $_POST['Reservation']['start']); // 16.01.2015, 00:00
-                    $model->end = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['end'])); //['end']); // j.n.Y, H:i
+                    $model->start = date("Y-m-d H:i:s", strtotime($start[0])); // ,  $_POST['Reservation']['start']); // 16.01.2015, 00:00
+                    $model->end = date("Y-m-d H:i:s", strtotime($start[1])); //['end']); // j.n.Y, H:i
                     break;
                 case Reservation::TYPE_PERMANENT:
                     $model->duration = 30;
-                    $model->period = 1; // period je null, ili 1 po dogovoru
+                    $model->period = null; // period je null, ili 1 po dogovoru
                     $model->end = null; // trajna rezervacija nema službeni kraj, samo početak
                     $model->start = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['start']));
                     break;
@@ -141,12 +143,14 @@ class ReservationController extends Controller
 
 
             if($model->isPossible() && $model->save())
-                return $this->goHome();
+                \Yii::$app->getSession()->setFlash('success', 'Rezervacija je uspješno kreirana.');
             else
-            {
-                throw new ErrorException("It's not possible to create this reservation at this moment");
-            }
-        //if ($model->load(Yii::$app->request->post()) && $model->isPossible()) {
+                \Yii::$app->getSession()->setFlash('danger', 'Nemate dovoljno sredstava na računu za obaviti rezervaciju.');
+
+
+            return $this->goHome();
+
+            //if ($model->load(Yii::$app->request->post()) && $model->isPossible()) {
         } else {
             return $this->render('create', [
                 'model' => $model,

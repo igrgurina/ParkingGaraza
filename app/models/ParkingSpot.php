@@ -65,4 +65,12 @@ class ParkingSpot extends \yii\db\ActiveRecord
     {
         return new ParkingSpotQuery(get_called_class());
     }
+
+    public static function triggerSensorsAt($parkingSpots)
+    {
+        foreach ($parkingSpots as $ps) {
+            $ps->sensor = !$ps->sensor;
+        }
+
+    }
 }
