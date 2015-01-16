@@ -1,7 +1,7 @@
 <?php
 use dosamigos\google\maps\LatLng;
 /* @var $this yii\web\View */
-$this->title = 'My Yii Application';
+$this->title = 'Parking Zagreb';
 /* @var $parkings \yii\db\ActiveQuery */
 /* @var $currentLocation LatLng */
 
