@@ -196,10 +196,16 @@ class Reservation extends \yii\db\ActiveRecord
     public function isExpiringToday()
     {
         $date = DateTime::createFromFormat("Y-m-d H:i:s", $this->start);
-        $date->add(new DateInterval('P' . $this->distance . 'D'));
+        $date->add(new DateInterval('P30D'));
 
         return $date->format("Y-m-d") == date("Y-m-d");
 
+    }
+
+    public function deactivate()
+    {
+        $this->active = false;
+        $this->save();
     }
 }
 

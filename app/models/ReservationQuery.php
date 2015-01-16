@@ -16,6 +16,12 @@ class ReservationQuery extends ActiveQuery
         return $this;
     }*/
 
+    public function active($var = true)
+    {
+        $this->andWhere(['active' => $var]);
+        return $this;
+    }
+
     public function periodic()
     {
         $this->andWhere(['type' => Reservation::TYPE_PERIODIC]);

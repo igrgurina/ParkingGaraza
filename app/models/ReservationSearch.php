@@ -93,6 +93,7 @@ class ReservationSearch extends Reservation
             'end' => $this->end,
             'duration' => $this->duration,
             'period' => $this->period,
+            'active' => true
         ]);
 
         $query->andFilterWhere(['like', 'type', $this->type]);

@@ -37,20 +37,34 @@ class CronController extends Controller
      */
     public function actionUpdate()
     {
-        $reservations = Reservation::find()->refreshable()->all();
+        $reservations = Reservation::find()->active()->refreshable()->all();
 
         foreach ($reservations as $reservation) {
             if($reservation->isExpiringToday())
             {
-                $reservation->start = time();
-                if($reservation->isPossible())
+                if(is_null($reservation->duration))
+                    $reservation->duration = 30;
+                // uvećaj početno vrijeme za trajanje rezervacije
+                $date = \DateTime::createFromFormat("Y-m-d H:i:s", $reservation->start);
+                $reservation->start = $date->add(new \DateInterval('P' . $this->duration . 'D'))->format("Y-m-d H:i:s");
+
+                // ako je ponavljajuća, uvećaj završno vrijeme za trajanje rezervacije
+                // ukoliko je trajna, završno vrijeme ostaje null
+                if($reservation->type == Reservation::TYPE_PERIODIC)
                 {
-                    
-                    $after = $this->ansiFormat($reservation->type, Console::FG_GREEN);
-                    echo "reservation $after\n";
+                    $date = \DateTime::createFromFormat("Y-m-d H:i:s", $reservation->end);
+                    $reservation->end = $date->add(new \DateInterval('P' . $this->duration . 'D'))->format("Y-m-d H:i:s");
                 }
+
+                if($reservation->isPossible()) {
+                    $reservation->save();
+                } else {
+                    $reservation->deactivate();
+                }
+
+                $after = $this->ansiFormat($reservation->type, Console::FG_GREEN);
+                echo "reservation $after\n";
             }
         }
-
     }
 }
