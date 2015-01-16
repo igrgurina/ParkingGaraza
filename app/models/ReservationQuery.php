@@ -33,4 +33,10 @@ class ReservationQuery extends ActiveQuery
         $this->andWhere(['type' => Reservation::TYPE_PERMANENT]);
         return $this;
     }
+
+    public function refreshable()
+    {
+        $this->andWhere(['type' => Reservation::TYPE_PERMANENT])->orWhere(['type' => Reservation::TYPE_PERIODIC]);
+        return $this;
+    }
 }

@@ -2,6 +2,7 @@
 namespace app\commands;
 
 use app\models\ParkingSpot;
+use app\models\Reservation;
 use yii\console\Controller;
 use yii\helpers\Console;
 
@@ -19,18 +20,16 @@ class CronController extends Controller
      */
     public function actionPick()
     {
-        //$this->stdout("Hello?\n", Console::BOLD);
         $parkingSpots = ParkingSpot::find()->all();
         //shuffle($parkingSpots);
 
         foreach ($parkingSpots as $ps) {
-            $prije = $this->ansiFormat($ps->sensor, Console::FG_GREEN);
-            $ps->sensor = rand(ParkingSpot::STATUS_TAKEN,ParkingSpot::STATUS_FREE);
-            $poslije = $this->ansiFormat($ps->sensor, Console::FG_GREEN);
-            echo "ParkingSpot $ps->id \t $prije => $poslije \n";
+            $beforeChange = $this->ansiFormat($ps->sensor, Console::FG_GREEN);
+            $ps->sensor = rand(ParkingSpot::STATUS_TAKEN, ParkingSpot::STATUS_FREE);
+            $afterChange = $this->ansiFormat($ps->sensor, Console::FG_GREEN);
+            echo "ParkingSpot $ps->id \t $beforeChange => $afterChange \n";
             $ps->save();
         }
-
     }
 
     /**
@@ -38,6 +37,20 @@ class CronController extends Controller
      */
     public function actionUpdate()
     {
+        $reservations = Reservation::find()->refreshable()->all();
+
+        foreach ($reservations as $reservation) {
+            if($reservation->isExpiringToday())
+            {
+                $reservation->start = time();
+                if($reservation->isPossible())
+                {
+                    
+                    $after = $this->ansiFormat($reservation->type, Console::FG_GREEN);
+                    echo "reservation $after\n";
+                }
+            }
+        }
 
     }
 }

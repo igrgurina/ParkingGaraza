@@ -134,10 +134,11 @@ class ReservationController extends Controller
                     $model->start = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['start']));
                     break;
                 default:
+                    $start = explode('-', $_POST['Reservation']['termin']);
                     $model->duration = 30;
                     $model->period = $_POST['Reservation']['period'];
-                    $model->start = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['start']));
-                    $model->end = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['end']));
+                    $model->start = date("Y-m-d H:i:s", strtotime($start[0]));
+                    $model->end = date("Y-m-d H:i:s", strtotime($start[1]));
                     break;
             }
 

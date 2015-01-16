@@ -37,27 +37,14 @@ use kartik\daterange\DateRangePicker;
                 ],
             ])->label('Odaberite vrijeme početka vaše trajne rezervacije'); ?>
     <?php else: ?>
-        <?= $form->field($model, 'start')->widget(DatetimepickerWidget::className(), [
-            'clientOptions' => [
-                'language' => 'hr',
-                'useMinutes' => false,              // disables the minutes picker
-                'useSeconds' => false,              // disables the seconds picker
-                //'defaultDate' => (new DateTime())->add(new DateInterval('PT6H0S')),
-                //'useCurrent' => true,
-                'sideBySide' => true,               //show the date and time picker side by side
-            ],
-        ]); ?>
-
-        <?= $form->field($model, 'end')->widget(DatetimepickerWidget::className(), [
-            'clientOptions' => [
-                'language' => 'hr',
-                'useMinutes' => false,              // disables the minutes picker
-                'useSeconds' => false,              // disables the seconds picker
-                'defaultDate' => (new DateTime())->add(new DateInterval('PT7H0S')),
-                //'useCurrent' => true,
-                'sideBySide' => true,               //show the date and time picker side by side
-            ],
-        ]); ?>
+        <?= $form->field($model, 'termin')->widget(DateRangePicker::className(), [
+            'convertFormat'=>true,
+            'pluginOptions'=>[
+                'timePicker'=>true,
+                'timePickerIncrement'=>60,
+                'format'=>'d.m.Y H:i'
+            ]
+        ])->label('Odaberite prvi termin vaše periodične rezervacije') ?>
 
         <?= $form->field($model, 'duration')->textInput()->label('Koliko dana?') ?>
 

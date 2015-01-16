@@ -50,7 +50,7 @@ class Reservation extends \yii\db\ActiveRecord
             [['type'], 'string'],
             [['start', 'end', 'duration', 'period'], 'safe'],
             // TODO: usporedba ne radi baš najbolje ukoliko se rezervira isti dan
-            ['start', 'compare', 'compareValue' => Reservation::sixHoursAheadFromNow(), 'operator' => '>='],
+            ['start', 'compare', 'compareValue' => Reservation::sixHoursAheadFromNow(), 'operator' => '>'],
         ];
     }
 
@@ -188,6 +188,18 @@ class Reservation extends \yii\db\ActiveRecord
     private function hasEnoughMoney()
     {
         return rand(0,1);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isExpiringToday()
+    {
+        $date = DateTime::createFromFormat("Y-m-d H:i:s", $this->start);
+        $date->add(new DateInterval('P' . $this->distance . 'D'));
+
+        return $date->format("Y-m-d") == date("Y-m-d");
+
     }
 }
 
