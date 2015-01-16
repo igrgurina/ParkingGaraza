@@ -127,13 +127,13 @@ class ReservationController extends Controller
                     break;
                 case Reservation::TYPE_PERMANENT:
                     $model->duration = 30;
-                    $model->period = 1; // period je null, ili 1
+                    $model->period = 1; // period je null, ili 1 po dogovoru
                     $model->end = null; // trajna rezervacija nema službeni kraj, samo početak
                     $model->start = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['start']));
                     break;
                 default:
                     $model->duration = 30;
-                    $model->period = $request->post('Reservation.period');
+                    $model->period = $_POST['Reservation']['period'];
                     $model->start = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['start']));
                     $model->end = date("Y-m-d H:i:s", strtotime($_POST['Reservation']['end']));
                     break;
