@@ -107,27 +107,11 @@ class ReservationController extends Controller
      */
     public function actionCreate($parking_id, $type)
     {
-        // TODO: do this
         $model = new Reservation();
 
         $model->parking_id = $parking_id;
         $model->user_id = Yii::$app->user->id;
         $model->type = $type;
-
-        switch($model->type)
-        {
-            case Reservation::TYPE_INSTANT:
-                $model->duration = null;
-                $model->period = null;
-                break;
-            case Reservation::TYPE_PERMANENT:
-                $model->duration = 30;
-                $model->period = null; // period je null, ili 1
-                $model->end = null; // trajna rezervacija nema službeni kraj, samo početak
-                break;
-            default:
-                break;
-        }
 
         $request = Yii::$app->request;
         if($request->isPost)
@@ -135,16 +119,30 @@ class ReservationController extends Controller
             switch($model->type)
             {
                 case Reservation::TYPE_INSTANT:
+                    $model->duration = null;
+                    $model->period = null;
+                    $model->start = $request->post('Reservation.start');
+                    $model->end = $request->post('Reservation.end');
                     break;
                 case Reservation::TYPE_PERMANENT:
+                    $model->duration = 30;
+                    $model->period = null; // period je null, ili 1
+                    $model->end = null; // trajna rezervacija nema službeni kraj, samo početak
                     $model->start = $request->post('Reservation.start');
                     break;
                 default:
+                    $model->duration = $request->post('Reservation.duration');
+                    $model->period = $request->post('Reservation.period');
+                    $model->start = $request->post('Reservation.start');
+                    $model->end = $request->post('Reservation.end');
                     break;
             }
 
-            if($model->isPossible() && $model->save(false))
-                return $this->redirect(['view', 'id' => $model->id]);
+            if($model->save())
+                return $this->goHome();
+
+            //if($model->isPossible() && $model->save(false))
+              //  return $this->goHome();
         //if ($model->load(Yii::$app->request->post()) && $model->isPossible()) {
         } else {
             return $this->render('create', [
@@ -154,7 +152,7 @@ class ReservationController extends Controller
     }
 
     /**
-     * [UC11] Deletes an existing Reservation model.
+     * [UC11] Cancels an existing Reservation model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
