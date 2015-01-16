@@ -136,7 +136,6 @@ class Parking extends \yii\db\ActiveRecord
      */
     public static function findBestSuggestion($number)
     {
-        // TODO: ispraviti
         $parkings = [];
         foreach (Parking::find()->active()->all() as $item) {
             if($item->freeParkingSpotsCount > $number)
@@ -212,7 +211,8 @@ class Parking extends \yii\db\ActiveRecord
 
     public function delete()
     {
-        // TODO: promijeniti na STATUS_CLOSED
+        $this->status = Parking::STATUS_CLOSED;
+        $this->save(false);
     }
 
 }

@@ -119,7 +119,7 @@ class ReservationController extends Controller
             switch($model->type)
             {
                 case Reservation::TYPE_INSTANT:
-                    $model->duration = null;
+                    $model->duration = 1;
                     $model->period = null;
                     $model->start = $request->post('Reservation.start');
                     $model->end = $request->post('Reservation.end');
@@ -131,18 +131,20 @@ class ReservationController extends Controller
                     $model->start = $request->post('Reservation.start');
                     break;
                 default:
-                    $model->duration = $request->post('Reservation.duration');
+                    $model->duration = 30;
                     $model->period = $request->post('Reservation.period');
                     $model->start = $request->post('Reservation.start');
-                    $model->end = $request->post('Reservation.end');
+                    $model->end = $_POST['Reservation']['end'];
                     break;
             }
 
-            if($model->save())
-                return $this->goHome();
 
-            //if($model->isPossible() && $model->save(false))
-              //  return $this->goHome();
+            if($model->isPossible() && $model->save())
+                return $this->goHome();
+            else
+            {
+                throw new ErrorException("It's not possible to create this reservation at this moment");
+            }
         //if ($model->load(Yii::$app->request->post()) && $model->isPossible()) {
         } else {
             return $this->render('create', [
