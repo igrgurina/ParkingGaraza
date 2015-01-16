@@ -65,4 +65,39 @@ class ReservationSearch extends Reservation
 
         return $dataProvider;
     }
+
+    /**
+     * Creates data provider instance with search query applied
+     *
+     * @param array $params
+     *
+     * @return ActiveDataProvider
+     */
+    public function mySearch($params)
+    {
+        $query = Reservation::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        if (!($this->load($params) && $this->validate())) {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'user_id' => Yii::$app->user->id,
+            'parking_id' => $this->parking_id,
+            'start' => $this->start,
+            'end' => $this->end,
+            'duration' => $this->duration,
+            'period' => $this->period,
+        ]);
+
+        $query->andFilterWhere(['like', 'type', $this->type]);
+
+        return $dataProvider;
+    }
+
 }

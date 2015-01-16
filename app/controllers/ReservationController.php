@@ -55,7 +55,7 @@ class ReservationController extends Controller
     public function actionIndex()
     {
         $searchModel = new ReservationSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->mySearch(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
