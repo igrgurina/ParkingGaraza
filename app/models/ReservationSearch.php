@@ -59,6 +59,7 @@ class ReservationSearch extends Reservation
             'end' => $this->end,
             'duration' => $this->duration,
             'period' => $this->period,
+            'active' => $this->active,
         ]);
 
         $query->andFilterWhere(['like', 'type', $this->type]);
@@ -75,7 +76,7 @@ class ReservationSearch extends Reservation
      */
     public function mySearch($params)
     {
-        $query = Reservation::find();
+        $query = Reservation::find()->active();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -93,7 +94,6 @@ class ReservationSearch extends Reservation
             'end' => $this->end,
             'duration' => $this->duration,
             'period' => $this->period,
-            'active' => true
         ]);
 
         $query->andFilterWhere(['like', 'type', $this->type]);

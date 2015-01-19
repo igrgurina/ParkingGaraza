@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ReservationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Reservations';
+$this->title = 'Rezervacije';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reservation-index">
@@ -29,8 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'end',
             'duration',
             'period',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            'active'
+            //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

@@ -21,9 +21,29 @@ $this->title = 'Parking Zagreb';
                <?php endforeach ?>
            </div>
        </div>
-       <?= $this->render('_search', [
-           'model' => new \app\models\Location(),
-       ]) ?>
+       <div class="row">
+           <div class="col-md-4">
+               <?= $this->render('_search', [
+                   'model' => new \app\models\Location(),
+               ]) ?>
+           </div>
+           <div class="col-md-2 col-md-offset-5">
+               <div class="box">
+                   <div class="info">
+                       <h4 class="text-left" style="padding-left: 7px; margin-bottom: 3px">Cjenik:</h4>
+                       <p id="cjenikGL" class="center-block">5 kn/h</p>
+                       <ul class="list-group list-group-flush text-center" style="margin-bottom: 0">
+                           <li class="list-group-item" style="font-size: 18px"><i class="icon-ok text-danger"></i><strong>Registrirani korisnici:</strong></li>
+                           <li class="list-group-item"><i class="icon-ok text-danger"></i>Popust 20%</li>
+                           <li class="list-group-item"><i class="icon-ok text-danger"></i>Mogućnost rezervacije</li>
+                       </ul>
+
+                       <!--<a href="" class="btn">Cjenik i upute</a>-->
+                   </div>
+               </div>
+           </div>
+
+       </div>
         <div class="row">
             <div class="col-md-12">
                 <?= $this->render('_map', [

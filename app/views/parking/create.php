@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Parking */
 
-$this->title = 'Create Parking';
+$this->title = 'Kreiraj parkiralište';
 $this->params['breadcrumbs'][] = ['label' => 'Parkings', 'url' => ['admin']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

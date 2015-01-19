@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ParkingSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Parkings';
+$this->title = 'Parkirališta';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="parking-index">

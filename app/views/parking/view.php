@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Parking */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Parkings', 'url' => ['admin']];
+$this->params['breadcrumbs'][] = ['label' => 'Parkirališta', 'url' => ['admin']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="parking-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Izmjeni', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Izbriši', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Da li ste sigurni da želite obrisati ovo parkiralište?',
                 'method' => 'post',
             ],
         ]) ?>

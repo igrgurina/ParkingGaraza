@@ -48,11 +48,13 @@ class Parking extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type', 'number_of_parking_spots', 'company_id'], 'required'],
+            [['number_of_parking_spots'], 'required', 'message' => '{attribute} mora biti unesen.'],
+            [['coordinates'], 'required', 'message' => 'Potrebno je odabrati lokaciju parkirališta.'],
+            [['type'], 'required', 'message' => 'Potrebno je odabrati tip parkirališta.'],
             [['coordinates'], 'safe'],
-            [['location_id', 'number_of_parking_spots', 'company_id', 'status'], 'integer'],
+            [['location_id', 'number_of_parking_spots', 'company_id', 'status'], 'integer', 'message' => '{attribute} mora biti cijeli broj.'],
             [['type'], 'string'],
-            ['number_of_parking_spots', 'compare', 'compareValue' => 10, 'operator' => '>='],
+            ['number_of_parking_spots', 'compare', 'compareValue' => 10, 'operator' => '>=', 'message' => '{attribute} mora biti cijeli broj veći ili jednak 10.'],
         ];
     }
 
@@ -65,11 +67,15 @@ class Parking extends \yii\db\ActiveRecord
             'id' => 'ID',
             'location_id' => 'Location ID',
             'type' => 'Tip parkirališta',
-            'number_of_parking_spots' => 'Broj parkirnih mjesta',
+            'number_of_parking_spots' => 'Broj parkirališnih mjesta',
             'company_id' => 'Company ID',
             'status' => 'Status',
+            'freeParkingSpotsCount' => 'Broj slobodnih mjesta',
+            'coordinates' => 'Lokacija parkirališta',
         ];
     }
+
+
 
     /**
      * @return \yii\db\ActiveQuery
@@ -145,9 +151,11 @@ class Parking extends \yii\db\ActiveRecord
         //return Parking::find()->where('freeParkingSpotsCount > num', ['num' => $number])->all(); //->andWhere(['location.lat' => $coordinate->getLat(), 'location.lng' => $coordinate->getLng()]) ->all();
     }
 
+
     /**
-     * @param $coordinate LatLng
-     * @return $parking Parking
+     *
+     * @param $coordinate LatLng current user location
+     * @return Parking|null
      */
     public static function suggestParking($coordinate)
     {
@@ -185,6 +193,10 @@ class Parking extends \yii\db\ActiveRecord
         return null;
     }
 
+    /**
+     * Creates parking spots for parking.
+     * @return void
+     */
     public function createParkingSpots()
     {
         for ($i = 1; $i <= $this->number_of_parking_spots; $i++){
@@ -196,6 +208,10 @@ class Parking extends \yii\db\ActiveRecord
     }
 
 
+    /**
+     * @inheritdoc
+     * Sets default values for Parking before saving the model to database.
+     */
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
@@ -209,6 +225,10 @@ class Parking extends \yii\db\ActiveRecord
         }
     }
 
+    /**
+     * @inheritdoc
+     * Overrides parking deletion to just changing its status.
+     */
     public function delete()
     {
         $this->status = Parking::STATUS_CLOSED;

@@ -29,6 +29,8 @@ class Reservation extends \yii\db\ActiveRecord
     const TYPE_PERIODIC = 'recurring';
     const TYPE_PERMANENT = 'permanent';
 
+    const STATUS_ACTIVE = 1;
+
     public $termin;
 
     /**
@@ -45,7 +47,7 @@ class Reservation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'type', 'parking_id'], 'required'],
+            [['user_id', 'type', 'parking_id', 'termin'], 'required'],
             [['user_id', 'parking_id'], 'integer'],
             [['type'], 'string'],
             [['start', 'end', 'duration', 'period'], 'safe'],
@@ -155,8 +157,6 @@ class Reservation extends \yii\db\ActiveRecord
    /*
     * Counts collisions in certain day
     */
-
-
     private function activeReservationsAt ($start, $end) {
 
         $count = 0;
@@ -185,6 +185,9 @@ class Reservation extends \yii\db\ActiveRecord
         return $count;
     }
 
+    /**
+     * @return int random number from 0 to 1
+     */
     private function hasEnoughMoney()
     {
         return rand(0,1);
@@ -202,10 +205,13 @@ class Reservation extends \yii\db\ActiveRecord
 
     }
 
+    /**
+     * Deactivates reservation.
+     */
     public function deactivate()
     {
         $this->active = false;
-        $this->save();
+        $this->update(false);
     }
 }
 

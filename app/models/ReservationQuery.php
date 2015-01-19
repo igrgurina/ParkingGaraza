@@ -16,7 +16,7 @@ class ReservationQuery extends ActiveQuery
         return $this;
     }*/
 
-    public function active($var = true)
+    public function active($var = Reservation::STATUS_ACTIVE)
     {
         $this->andWhere(['active' => $var]);
         return $this;

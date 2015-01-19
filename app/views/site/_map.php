@@ -21,7 +21,7 @@ use yii\helpers\Html;
 
 $Zagreb = new LatLng(['lat' => 45.8167, 'lng' => 15.9833]);
 $map = new Map([
-    'center' => $currentLocation == null ? $Zagreb : $currentLocation,
+    'center' => is_null($currentLocation) ? $Zagreb : $currentLocation,
     'zoom' => 12,
     'width' => '100%',
     'height' => '300',
@@ -43,11 +43,18 @@ foreach ($parkings as $parking) {
 
     $marker->attachInfoWindow(
         new InfoWindow([
-            'content' => '<div style="height: 100px;width:200px;"><span class="glyphicon glyphicon-globe pull-left" style="margin-top:2px;"></span><h4 class="text-center">Parking Zagreb</h4>
-            <p>' . $parking->location->address . '</p>
-            <p>Trenutno je slobodno ' . $parking->freeParkingSpotsCount . ' od ' . $parking->number_of_parking_spots . ' parkirališnih mjesta.</p>
-            <p class="pull-right">' . $linkToReservation . '</p>
-            </div>'
+            'content' =>
+'<div style="height: 100px; width: 200px;">
+    <span class="glyphicon glyphicon-globe pull-left" style="margin-top: 2px"></span>
+    <h4 class="text-center">Parking Zagreb</h4>
+    <p>' . $parking->location->address . '</p>'
+    . ( !$parking->freeParkingSpotsCount ?
+        '<p>Trenutno nema slobodnih mjesta.</p>' :
+        ('<p>Trenutno je slobodno ' . $parking->freeParkingSpotsCount . ' od ' . $parking->number_of_parking_spots . ' parkirališnih mjesta</p>' )
+    ) . '
+
+    <p class="pull-right">' . $linkToReservation . '</p>
+</div>'
         ])
     );
 
@@ -56,4 +63,3 @@ foreach ($parkings as $parking) {
 }
 
 echo $map->display();
-?>

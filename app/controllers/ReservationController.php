@@ -113,6 +113,7 @@ class ReservationController extends Controller
         $model->parking_id = $parking_id;
         $model->user_id = Yii::$app->user->id;
         $model->type = $type;
+        $model->active = Reservation::STATUS_ACTIVE;
 
         $request = Yii::$app->request;
         if($request->isPost)
@@ -167,7 +168,7 @@ class ReservationController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->cancel();
+        $this->findModel($id)->deactivate();
 
         return $this->redirect(['index']);
     }

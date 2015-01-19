@@ -33,8 +33,8 @@ class Location extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'address', 'lat', 'lng'], 'required'],
-            [['lat', 'lng'], 'number'],
+            [['lat', 'lng'], 'required', 'message' => '{attribute} mora biti unesena.'],
+            [['lat', 'lng'], 'number', 'message' => '{attribute} mora biti broj.'],
             [['name', 'address'], 'string', 'max' => 60]
         ];
     }

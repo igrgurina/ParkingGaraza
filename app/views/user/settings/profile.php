@@ -17,7 +17,7 @@ use yii\helpers\Html;
  * @var dektrium\user\models\Profile $profile
  */
 
-$this->title = Yii::t('user', 'Profile settings');
+$this->title = Yii::t('user', 'Osobni podaci');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

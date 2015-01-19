@@ -11,6 +11,9 @@ use kartik\daterange\DateRangePicker;
 ?>
 
 <div class="reservation-form col-md-4">
+    <div class="progress">
+        <div data-percentage="66%" style="width: 66%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -53,7 +56,9 @@ use kartik\daterange\DateRangePicker;
     <?php endif; ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::a('Odustani', Yii::$app->user->getReturnUrl(), ['class' => 'btn btn-warning pull-left']) ?>
+
+        <?= Html::submitButton('Stvori', ['class' => 'btn btn-success pull-right']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
